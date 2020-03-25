@@ -19,6 +19,29 @@
   color: lightgrey;
 }
 
+.header-login form {
+  padding-bottom: 4px;
+}
+
+.header-login input,
+.header-login button {
+  width: 13vw;
+  padding: 3px;
+  border: none;
+  background: #a3a0a0;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+.header-login button {
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.col-md-10 {
+  padding: 0;
+}
+
 .blogpost .panel-heading {
   background-color: lightgray;
 }
