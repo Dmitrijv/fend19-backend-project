@@ -26,7 +26,36 @@
 
     <section id="main">
       <div class="container">
-        <div class="row">
+          <div class="row">
+
+        <section class="post-list">
+
+          </section>
+          <?php
+            require('php/DBHandler.php');
+            $db = new DBHandler();
+            $db->connect();
+            $posts = $db->getBlogPosts();
+            $db->closeConnection();
+          ?>
+
+		<?php foreach($posts as $post) : ?>
+      
+              <!-- generated post  -->
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h2 class="panel-title"><?php echo $post['title']; ?></h2>
+                </div>
+                <div class="panel-body">
+                  <small>Posted <?php echo $post['created_at']; ?> by <?php echo $post['author']; ?></small>
+                  </br>
+                  <?php echo $post['body']; ?>
+                </div>
+              </div>
+
+		<?php endforeach; ?>
+
+
 
           <div>
             <!-- Website Overview -->
@@ -102,6 +131,7 @@
                     </table>
                 </div>
               </div>
+
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ class DBHandler {
     }
 
 	public function getBlogPosts() {
-		$query = 'SELECT * FROM posts ORDER BY created_at DESC';
+		$query = 'SELECT * FROM posts ORDER BY created_at ASC';
 		$queryResult = mysqli_query($this->conn, $query);
 		$posts = [];
 		while($tableRow = mysqli_fetch_assoc($queryResult)) {
