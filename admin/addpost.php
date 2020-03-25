@@ -20,6 +20,7 @@
 ?>
 
 <?php include('inc/header.php'); ?>
+
 	<div class="container">
 		<h1>Add Post</h1>
 		<form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
@@ -38,4 +39,5 @@
 			<input type="submit" name="submit" value="Submit" class="btn btn-primary">
 		</form>
 	</div>
+	
 <?php include('inc/footer.php'); ?>
