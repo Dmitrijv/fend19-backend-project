@@ -1,6 +1,6 @@
 <?php 
 
-    require('DBHandler.php');
+    require_once('../../php/DBHandler.php');
 
     function stringToBoolean($string){
         if ($string == "on") {
