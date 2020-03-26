@@ -23,7 +23,7 @@ session_start();
     <div class="container">
 
         <div class="col-md-10">
-          <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Posts<small> Manage Blog Posts</small></h1>
+          <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Blog Posts</h1>
         </div>
 
     </div>
@@ -49,9 +49,9 @@ session_start();
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                   <input class="form-control" type="text" placeholder="Filter Posts...">
-                </div>
+                </div> -->
               </div>
               <br>
               <table class="table table-striped table-hover">

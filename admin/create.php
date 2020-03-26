@@ -19,7 +19,7 @@
     <div class="container">
 
         <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Post <small>About</small></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Create a new post</h1>
         </div>
 
     </div>
@@ -29,7 +29,7 @@
       <div class="container">
         <ol class="breadcrumb">
           <li><a href="index.php">Dashboard</a></li>
-          <li class="active">Edit Post</li>
+          <li class="active">Create Post</li>
         </ol>
       </div>
     </section>
@@ -43,18 +43,17 @@
             <!-- Website Overview -->
             <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Edit Post</h3>
+                <h3 class="panel-title">Create Post</h3>
               </div>
               <div class="panel-body">
                 <form>
                   <div class="form-group">
-                    <label>Post Title</label>
-                    <input type="text" class="form-control" placeholder="Page Title" value="About">
+                    <label>Page Title</label>
+                    <input type="text" class="form-control" placeholder="Page Title">
                   </div>
                   <div class="form-group">
-                    <label>Post Body</label>
+                    <label>Page Body</label>
                     <textarea name="editor1" class="form-control" placeholder="Page Body">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </textarea>
                   </div>
                   <div class="checkbox">
