@@ -1,6 +1,31 @@
-<?php 
-  include 'header.php'; 
-?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Area | Dashboard</title>
+  <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link href="css/customStyle.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="public-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10">
+          <h1></span> FEND19 - Backend - CMS <small>by Dmitrij Velström & Shan Mi</small></h1>
+        </div>
+      </div>
+    </div>
+  </header>
+
 <section id="main">
   <div class="container">
     <div class="row">
@@ -8,6 +33,7 @@
       <section class="post-list">
 
       </section>
+
       <?php
       require('php/DBHandler.php');
       $db = new DBHandler();
@@ -36,7 +62,12 @@
   </div>
 </section>
 
-<?php include 'footer.php'; ?>
+  <footer id="footer">
+    <p>FEND19 - Backend - CMS</p>
+    <p>Dmitrij Velström, Shan Mi</p>
+    <p>Nackademin</p>
+    <p>2020-03-26</p>
+  </footer>
 
 <!-- Modals -->
 
