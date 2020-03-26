@@ -5,6 +5,10 @@ require('../php/DBHandler.php');
 $db = new DBHandler();
 $db->connect();
 $posts = $db->showAllPosts();
+if (isset($_POST['delete'])) {
+  $delete_id = $_POST['delete_id'];
+  $db->deletePost($delete_id);
+}
 $db->closeConnection();
 ?>
 
@@ -61,7 +65,7 @@ $db->closeConnection();
 
 
               <div class="add-new-post-box">
-                <a href="create.php">+ add a new post</a>
+                <a href="create.php"><i class="fas fa-plus"></i> add a new post</a>
               </div>
 
 
@@ -73,29 +77,35 @@ $db->closeConnection();
                 </div> -->
               </div>
               <br>
-              <table class="table table-striped table-hover">
+              <table class="table table-striped table-hover text-center">
                 <tr>
-                  <th>Title</th>
-                  <th>Published</th>
-                  <th>Created</th>
+                  <th class=" text-center">Title</th>
+                  <th class=" text-center">Published</th>
+                  <th class=" text-center">Created</th>
                   <th></th>
                 </tr>
 
                 <?php foreach ($posts as $post) : ?>
                   <tr>
                     <td><?php echo $post['title']; ?></td>
-                    <?php if($post['published']){
+                    <?php if ($post['published']) {
                       echo '<td><i class="fas fa-check"></i></td>';
                     } else {
                       echo '<td><i class="fas fa-times"></i></td>';
                     }
                     ?>
                     <td><?php echo $post['date_created']; ?></td>
-                    <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                    <td>
+                      <form style="display: inline-block;" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                      <a href="edit.php?id=<?php echo $post['id']; ?>" class="btn btn-default">Edit</a>
+                        <input class="btn btn-danger" type="submit" name="delete" value="Delete" class="btn btn-danger" onClick='return confirm("Are you sure you want to delete?")'>
+                        <input type="hidden" name="delete_id" value="<?php echo $post['id']; ?>">
+                      </form>
+                    </td>
                   </tr>
 
                 <?php endforeach; ?>
-                
+
               </table>
             </div>
           </div>
