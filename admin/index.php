@@ -1,6 +1,13 @@
 <?php
 session_start();
+
+require('../php/DBHandler.php');
+$db = new DBHandler();
+$db->connect();
+$posts = $db->showAllPosts();
+$db->closeConnection();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +19,11 @@ session_start();
   <!-- Bootstrap core CSS -->
   <link href="../css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
+
   <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
   <!-- Custom CSS -->
-  <link href="../css/customStyle.css" rel="stylesheet">  
+  <link href="../css/customStyle.css" rel="stylesheet">
 </head>
 
 <body>
@@ -22,9 +31,9 @@ session_start();
   <header id="header" class="public-header">
     <div class="container">
 
-        <div class="col-md-10">
-          <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Blog Posts</h1>
-        </div>
+      <div class="col-md-10">
+        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Blog Posts</h1>
+      </div>
 
     </div>
   </header>
@@ -51,12 +60,12 @@ session_start();
             <div class="panel-body">
 
 
-                <div class="add-new-post-box">
-                  <a href="create.php">+ add a new post</a>
-                </div>
+              <div class="add-new-post-box">
+                <a href="create.php">+ add a new post</a>
+              </div>
 
 
-            <div class="row">
+              <div class="row">
 
 
                 <!-- <div class="col-md-12">
@@ -71,30 +80,22 @@ session_start();
                   <th>Created</th>
                   <th></th>
                 </tr>
-                <tr>
-                  <td>Blog Post 1</td>
-                  <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                  <td>Dec 12, 2016</td>
-                  <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Blog Post 2</td>
-                  <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                  <td>Dec 13, 2016</td>
-                  <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Blog Post 3</td>
-                  <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                  <td>Dec 13, 2016</td>
-                  <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                </tr>
-                <tr>
-                  <td>Blog Post 4</td>
-                  <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                  <td>Dec 14, 2016</td>
-                  <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
-                </tr>
+
+                <?php foreach ($posts as $post) : ?>
+                  <tr>
+                    <td><?php echo $post['title']; ?></td>
+                    <?php if($post['published']){
+                      echo '<td><i class="fas fa-check"></i></td>';
+                    } else {
+                      echo '<td><i class="fas fa-times"></i></td>';
+                    }
+                    ?>
+                    <td><?php echo $post['date_created']; ?></td>
+                    <td><a class="btn btn-default" href="edit.php">Edit</a> <a class="btn btn-danger" href="#">Delete</a></td>
+                  </tr>
+
+                <?php endforeach; ?>
+                
               </table>
             </div>
           </div>
