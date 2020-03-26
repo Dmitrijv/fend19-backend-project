@@ -1,3 +1,16 @@
+<?php
+require('../php/DBHandler.php');
+$db = new DBHandler();
+$db->connect();
+$editId = $_GET['id'];
+$post = $db->editPost($editId);
+$db->closeConnection();
+?>
+
+<!-- TODO -->
+<!-- 1. check published status and show corresponding result on edit page-->
+<!-- 2. Submit -> store result -> jump back to index.php -->
+<!-- 3. Add images/maps -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,12 +63,12 @@
                 <form>
                   <div class="form-group">
                     <label>Post Title</label>
-                    <input type="text" class="form-control" placeholder="Page Title" value="About">
+                    <input type="text" class="form-control" placeholder="Page Title" value="<?php echo $post['title'] ?>">
                   </div>
                   <div class="form-group">
                     <label>Post Body</label>
                     <textarea name="editor2" class="form-control" placeholder="Page Body">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    <?php echo $post['body']?>
                     </textarea>
                   </div>
                   <div class="checkbox">
@@ -79,49 +92,6 @@
     <p>Nackademin</p>
     <p>2020-03-26</p>
   </footer>
-
-    <!-- Modals -->
-
-    <!-- Add Page -->
-    <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form>
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Page</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Page Title</label>
-          <input type="text" class="form-control" placeholder="Page Title">
-        </div>
-        <div class="form-group">
-          <label>Page Body</label>
-          <textarea name="editor2" class="form-control" placeholder="Page Body"></textarea>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Published
-          </label>
-        </div>
-        <div class="form-group">
-          <label>Meta Tags</label>
-          <input type="text" class="form-control" placeholder="Add Some Tags...">
-        </div>
-        <div class="form-group">
-          <label>Meta Description</label>
-          <input type="text" class="form-control" placeholder="Add Meta Description...">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </form>
-    </div>
-  </div>  
-</div>
 
   <script>
      CKEDITOR.replace( 'editor2' );
