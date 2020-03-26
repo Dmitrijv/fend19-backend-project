@@ -4,7 +4,7 @@ class DBHandler {
 
 	private $servername = "localhost";
 	private $username = "root";
-	private $password = "";
+	private $password = "058418Ms";
 	private $database = "phpblog";
 
 	private $conn;
@@ -49,6 +49,16 @@ class DBHandler {
 
 	public function getBlogPosts() {
 		$query = 'SELECT * FROM post WHERE published = TRUE ORDER BY date_created DESC';
+		$queryResult = mysqli_query($this->conn, $query);
+		$posts = [];
+		while($tableRow = mysqli_fetch_assoc($queryResult)) {
+			array_push($posts, $tableRow);
+		}
+		return $posts;
+	}
+
+	public function showAllPosts(){
+		$query = 'SELECT * FROM post ORDER BY date_created DESC';
 		$queryResult = mysqli_query($this->conn, $query);
 		$posts = [];
 		while($tableRow = mysqli_fetch_assoc($queryResult)) {
