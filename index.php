@@ -32,8 +32,6 @@
 
       <section class="post-list">
 
-
-
             <?php
             require('php/DBHandler.php');
             $db = new DBHandler();

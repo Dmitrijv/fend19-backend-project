@@ -28,6 +28,7 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
+          <li><a href="../index.php">Home</a></li>
           <li><a href="index.php">Dashboard</a></li>
           <li class="active">Create Post</li>
         </ol>
@@ -38,7 +39,6 @@
       <div class="container">
         <div class="">
 
-
           <div class="">
             <!-- Website Overview -->
             <div class="panel panel-default">
@@ -46,19 +46,19 @@
                 <h3 class="panel-title">Create Post</h3>
               </div>
               <div class="panel-body">
-                <form>
+                <form action="routines/createNewBlogpost.php" method="POST" >
                   <div class="form-group">
-                    <label>Page Title</label>
-                    <input type="text" class="form-control" placeholder="Page Title">
+                    <label>Title</label>
+                    <input name="post-title" type="text" class="form-control" placeholder="Enter a title">
                   </div>
                   <div class="form-group">
-                    <label>Page Body</label>
-                    <textarea name="editor1" class="form-control" placeholder="Page Body">
+                    <label>Body</label>
+                    <textarea name="post-body" name="editor1" class="form-control" placeholder="Write what's on your mind">
                     </textarea>
                   </div>
                   <div class="checkbox">
                     <label>
-                      <input type="checkbox" checked> Published
+                      <input name="post-published" type="checkbox" checked> Published
                     </label>
                   </div>
                   <input type="submit" class="btn btn-default" value="Submit">
@@ -78,48 +78,6 @@
     <p>2020-03-26</p>
   </footer>
 
-    <!-- Modals -->
-
-    <!-- Add Page -->
-    <div class="modal fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <form>
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Page</h4>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-          <label>Page Title</label>
-          <input type="text" class="form-control" placeholder="Page Title">
-        </div>
-        <div class="form-group">
-          <label>Page Body</label>
-          <textarea name="editor1" class="form-control" placeholder="Page Body"></textarea>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Published
-          </label>
-        </div>
-        <div class="form-group">
-          <label>Meta Tags</label>
-          <input type="text" class="form-control" placeholder="Add Some Tags...">
-        </div>
-        <div class="form-group">
-          <label>Meta Description</label>
-          <input type="text" class="form-control" placeholder="Add Meta Description...">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-    </form>
-    </div>
-  </div>
-</div>
 
   <script>
      CKEDITOR.replace( 'editor1' );

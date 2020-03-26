@@ -2,21 +2,50 @@
 
 class DBHandler {
 
-	private $server = "localhost";
+	private $servername = "localhost";
 	private $username = "root";
 	private $password = "";
 	private $database = "phpblog";
 
 	private $conn;
+	private $pdoConn;
 
 	public function connect() {
-		$this->conn = mysqli_connect($this->server, $this->username, $this->password, $this->database);
+		$this->conn = mysqli_connect($this->servername, $this->username, $this->password, $this->database);
 		if ($this->conn) {
 			//echo 'Connected successfully!';
 		} else {
 			die("Connection failed: " . mysqli_connect_error());
 		}
-    }
+	}
+	
+	public function connectPdo(){
+		try {
+			$servername = $this->servername;
+			$database = $this->database;
+			$this->pdoConn = new PDO("mysql:host=$servername;dbname=$database", $this->username, $this->password);
+			$this->pdoConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		} catch(PDOException $e) {
+			die ("Connection failed: " . $e->getMessage());
+		}		
+	}
+
+	public function createNewBlogPost($post){
+
+		$title = $post["title"];
+		$body = $post["body"];
+		$published = $post["published"] or false;
+		$dateCreated = $post['dateCreated'];
+
+		try {
+			$sql = "INSERT INTO post (id, published, title, body, date_created, date_last_edit)
+			VALUES (NULL, '$published', '$title', '$body', '$dateCreated', NULL)";
+			$this->pdoConn->exec($sql);
+		} catch(PDOException $e) {
+			echo $sql . "<br>" . $e->getMessage();
+		}
+
+	}
 
 	public function getBlogPosts() {
 		$query = 'SELECT * FROM post WHERE published = TRUE ORDER BY date_created DESC';
@@ -30,8 +59,12 @@ class DBHandler {
 
     public function closeConnection(){
         mysqli_close($this->conn);
-        unset($this->conn);
+		unset($this->conn);
         //echo ("[DB Handler] Closed a connection." . PHP_EOL);
-    }
+	}
+	
+	public function closePdoConnection(){
+		$this->pdoConn = null;
+	}
 
 }

@@ -28,6 +28,7 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
+          <li><a href="../index.php">Home</a></li>
           <li><a href="index.php">Dashboard</a></li>
           <li class="active">Edit Post</li>
         </ol>
