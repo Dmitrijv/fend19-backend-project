@@ -25,13 +25,13 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="index.php">Dashboard</a></li>
             <li><a href="pages.html">Pages</a></li>
             <li><a href="posts.html">Posts</a></li>
             <li><a href="users.html">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Welcome, Brad</a></li>
+            <li><a href="#">Welcome, ayumi</a></li>
             <li><a href="login.html">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -64,7 +64,7 @@
     <section id="breadcrumb">
       <div class="container">
         <ol class="breadcrumb">
-          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="index.php">Dashboard</a></li>
           <li><a href="pages.html">Pages</a></li>
           <li class="active">Edit Page</li>
         </ol>
@@ -76,7 +76,7 @@
         <div class="row">
           <div class="col-md-3">
             <div class="list-group">
-              <a href="index.html" class="list-group-item active main-color-bg">
+              <a href="index.php" class="list-group-item active main-color-bg">
                 <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Dashboard
               </a>
               <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
