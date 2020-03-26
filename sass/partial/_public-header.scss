@@ -17,26 +17,3 @@
     color: lightgrey;
   }
 }
-
-.header-login {
-  form {
-    padding-bottom: 4px;
-  }
-  input,
-  button {
-    width: 13vw;
-    padding: 3px;
-    border: none;
-    background: rgb(163, 160, 160);
-    margin-right: 5px;
-    border-radius: 2px;
-  }
-  button {
-    text-transform: uppercase;
-    color: #fff;
-  }
-}
-
-.col-md-10 {
-  padding: 0;
-}

@@ -49,9 +49,10 @@
                 <div class="panel-heading">
                   <h2 class="panel-title"><?php echo $post['title']; ?></h2>
                 </div>
+                <div class="blogpost-dateposted"> 
+                  <small>posted on <?php echo $post['date_created']; ?> </small>
+                </div>
                 <div class="panel-body">
-                  <small class="date-posted-box">Posted <?php echo $post['created_at']; ?> by <?php echo $post['author']; ?></small>
-                  </br>
                   <?php echo $post['body']; ?>
                 </div>
               </div>

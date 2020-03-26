@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2020 at 09:19 PM
+-- Generation Time: Mar 26, 2020 at 12:39 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -25,37 +25,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `posts`
+-- Table structure for table `post`
 --
 
-CREATE TABLE `posts` (
+CREATE TABLE `post` (
   `id` int(11) NOT NULL,
+  `published` tinyint(1) NOT NULL DEFAULT 1,
   `title` varchar(255) NOT NULL,
   `body` text NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_last_edit` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `posts`
+-- Dumping data for table `post`
 --
 
-INSERT INTO `posts` (`id`, `title`, `body`, `author`, `created_at`) VALUES
-(1, 'Post one', 'This is my very first post on this awesome blog! Tada!', 'Shan Mi', '2020-03-06 21:45:08'),
-(2, 'Post two', 'This is the second one.', 'Shan', '2020-03-06 21:45:08'),
-(5, 'Post 3', '测试一下，成功？删除了很多没用的文件呢。', 'Jane', '2020-03-07 15:50:21'),
-(7, 'Post 4', '不能退出，只能编辑增加，闹啥呢。no problem now.', '米珊', '2020-03-07 16:21:38'),
-(8, 'Post 5', 'This is sth new.', 'Fan', '2020-03-08 18:58:21'),
-(9, 'post 7', '20.00', 'Shan', '2020-03-24 19:00:13');
+INSERT INTO `post` (`id`, `published`, `title`, `body`, `date_created`, `date_last_edit`) VALUES
+(1, 1, 'Post one', 'This is my very first post on this awesome blog! Tada!', '2020-03-06 21:45:08', NULL),
+(2, 1, 'Post two', 'This is the second one.', '2020-03-06 21:45:08', NULL),
+(5, 0, 'Post 3', '测试一下，成功？删除了很多没用的文件呢。', '2020-03-07 15:50:21', NULL),
+(7, 0, 'Post 4', '不能退出，只能编辑增加，闹啥呢。no problem now.', '2020-03-07 16:21:38', NULL),
+(8, 1, 'Post 5', 'This is sth new.', '2020-03-08 18:58:21', NULL),
+(9, 1, 'post 7', '20.00', '2020-03-24 19:00:13', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `posts`
+-- Indexes for table `post`
 --
-ALTER TABLE `posts`
+ALTER TABLE `post`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -63,9 +64,9 @@ ALTER TABLE `posts`
 --
 
 --
--- AUTO_INCREMENT for table `posts`
+-- AUTO_INCREMENT for table `post`
 --
-ALTER TABLE `posts`
+ALTER TABLE `post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
