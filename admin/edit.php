@@ -54,7 +54,7 @@
                   </div>
                   <div class="form-group">
                     <label>Post Body</label>
-                    <textarea name="editor1" class="form-control" placeholder="Page Body">
+                    <textarea name="editor2" class="form-control" placeholder="Page Body">
                       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </textarea>
                   </div>
@@ -98,7 +98,7 @@
         </div>
         <div class="form-group">
           <label>Page Body</label>
-          <textarea name="editor1" class="form-control" placeholder="Page Body"></textarea>
+          <textarea name="editor2" class="form-control" placeholder="Page Body"></textarea>
         </div>
         <div class="checkbox">
           <label>
@@ -120,11 +120,11 @@
       </div>
     </form>
     </div>
-  </div>
+  </div>  
 </div>
 
   <script>
-     CKEDITOR.replace( 'editor1' );
+     CKEDITOR.replace( 'editor2' );
  </script>
 
     <!-- Bootstrap core JavaScript
