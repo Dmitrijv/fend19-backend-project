@@ -2,6 +2,10 @@ body {
   overflow-y: scroll;
 }
 
+.container {
+  max-width: 970px;
+}
+
 #header.public-header {
   display: -webkit-box;
   display: -ms-flexbox;

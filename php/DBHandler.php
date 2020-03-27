@@ -24,9 +24,7 @@ class DBHandler
 	public function connectPdo()
 	{
 		try {
-			$servername = $this->servername;
-			$database = $this->database;
-			$this->pdoConn = new PDO("mysql:host=$servername;dbname=$database", $this->username, $this->password);
+			$this->pdoConn = new PDO("mysql:host={$this->servername};dbname={$this->database}", $this->username, $this->password);
 			$this->pdoConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
 			die("Connection failed: " . $e->getMessage());
@@ -35,15 +33,10 @@ class DBHandler
 
 	public function createNewBlogPost($post)
 	{
-
-		$title = $post["title"];
-		$body = $post["body"];
 		$published = $post["published"] or false;
-		$dateCreated = $post['dateCreated'];
-
 		try {
 			$sql = "INSERT INTO post (id, published, title, body, date_created, date_last_edit)
-			VALUES (NULL, '$published', '$title', '$body', '$dateCreated', NULL)";
+			VALUES (NULL, '$published', '{$post["title"]}', '{$post["body"]}', '{$post["dateCreated"]}', NULL)";
 			$this->pdoConn->exec($sql);
 		} catch (PDOException $e) {
 			echo $sql . "<br>" . $e->getMessage();

@@ -35,7 +35,7 @@ $db->closeConnection();
   <header id="header" class="public-header">
     <div class="container">
 
-      <div class="col-md-10">
+      <div class="">
         <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Manage Blog Posts</h1>
       </div>
 

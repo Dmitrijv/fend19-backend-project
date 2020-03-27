@@ -19,7 +19,7 @@
   <header id="header" class="public-header">
     <div class="container">
 
-        <div class="col-md-10">
+        <div class="">
           <h1></span> FEND19 - Backend - CMS <small>by Dmitrij Velström & Shan Mi</small></h1>
         </div>
 

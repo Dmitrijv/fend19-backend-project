@@ -18,7 +18,7 @@
   <header id="header" class="public-header">
     <div class="container">
 
-        <div class="col-md-10">
+        <div class="">
             <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Create a new Post</h1>
         </div>
 
