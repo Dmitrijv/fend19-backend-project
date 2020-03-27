@@ -3,10 +3,20 @@ body {
 }
 
 .container {
-  max-width: 970px;
+  max-width: 930px;
 }
 
-table.admin-post-list tbody > tr > td {
-  height: 10px;
-  vertical-align: middle;
+.main-color-bg {
+  // background-color: #3b455e !important;
+}
+
+table.admin-post-list {
+  margin-top: 20px;
+  tbody > tr > td {
+    height: 10px;
+    vertical-align: middle;
+    &.post-title {
+      text-align: left;
+    }
+  }
 }

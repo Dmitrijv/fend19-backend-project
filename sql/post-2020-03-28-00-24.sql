@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2020 at 12:39 PM
+-- Generation Time: Mar 28, 2020 at 12:23 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -42,12 +42,11 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `published`, `title`, `body`, `date_created`, `date_last_edit`) VALUES
-(1, 1, 'Post one', 'This is my very first post on this awesome blog! Tada!', '2020-03-06 21:45:08', NULL),
-(2, 1, 'Post two', 'This is the second one.', '2020-03-06 21:45:08', NULL),
-(5, 0, 'Post 3', '测试一下，成功？删除了很多没用的文件呢。', '2020-03-07 15:50:21', NULL),
-(7, 0, 'Post 4', '不能退出，只能编辑增加，闹啥呢。no problem now.', '2020-03-07 16:21:38', NULL),
-(8, 1, 'Post 5', 'This is sth new.', '2020-03-08 18:58:21', NULL),
-(9, 1, 'post 7', '20.00', '2020-03-24 19:00:13', NULL);
+(21, 1, 'here comes imbedded garbage', '<p>aloha my google maps broha</p>\r\n\r\n\r\n', '2020-03-26 14:17:06', NULL),
+(33, 0, 'aint nobody can see unpublished posts yo!', '<p><em>yes this is dog</em></p>\r\n\r\n<p>&nbsp;</p>\r\n', '2020-03-27 20:16:15', '2020-03-28 00:17:08'),
+(34, 1, 'it went like this', '<p>the world is on fire and there&#39;s noone at the wheel</p>\r\n', '2020-03-27 21:33:43', NULL),
+(35, 1, 'I\'m not going to bed', '', '2020-03-27 22:28:44', '2020-03-28 00:20:21'),
+(36, 1, 'russian songs', '<p><strong>all night longs</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>https://www.youtube.com/watch?v=X-pJmArulSk&amp;list=RDeqOXv85bAeY&amp;index=6</p>\r\n', '2020-03-27 22:37:03', '2020-03-28 00:21:42');
 
 --
 -- Indexes for dumped tables
@@ -67,7 +66,7 @@ ALTER TABLE `post`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

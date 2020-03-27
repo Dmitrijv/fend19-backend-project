@@ -1,15 +1,14 @@
 <?php
-  require('../php/DBHandler.php');
-  $db = new DBHandler();
-  $db->connect();
-  $editId = $_GET['id'];
-  $post = $db->editPost($editId);
-  $db->closeConnection();
+  
+include_once("../php/cms.php");
+
+if (!isset($_GET["postId"])) { die; }
+$post = CMS::getBlogPost($_GET["postId"]);
+if (!$post) die;
+
 ?>
 
 <!-- TODO -->
-<!-- 1. check published status and show corresponding result on edit page-->
-<!-- 2. Submit -> store result -> jump back to index.php -->
 <!-- 3. Add images/maps -->
 <!DOCTYPE html>
 <html lang="en">
@@ -25,17 +24,13 @@
     <!-- Custom CSS -->
     <link href="../css/customStyle.css" rel="stylesheet">      
   </head>
+
   <body>
 
-
-  <header id="header" class="public-header">
-    <div class="container">
-
-        <div class="">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Post <small>About</small></h1>
-        </div>
-
-    </div>
+    <header id="header" class="public-header">
+      <div class="container">
+        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Post</h1>
+      </div>
     </header>
 
     <section id="breadcrumb">
@@ -50,39 +45,34 @@
 
     <section id="main">
       <div class="container">
-        <div class="">
 
-
-          <div class="">
-            <!-- Website Overview -->
-            <div class="panel panel-default">
-              <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Edit Post</h3>
+        <!-- Website Overview -->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Edit Post</h3>
+          </div>
+          <div class="panel-body">
+            <form action="php-routines/updateBlogPost.php?postId=<?php echo $post['id'] ?>" method="POST" >
+              <div class="form-group">
+                <label>Post Title</label>
+                <input type="text" name="post-title" class="form-control" placeholder="Page Title" value="<?php echo $post['title'] ?>">
               </div>
-              <div class="panel-body">
-                <form>
-                  <div class="form-group">
-                    <label>Post Title</label>
-                    <input type="text" class="form-control" placeholder="Page Title" value="<?php echo $post['title'] ?>">
-                  </div>
-                  <div class="form-group">
-                    <label>Post Body</label>
-                    <textarea name="editor2" class="form-control" placeholder="Page Body">
-                    <?php echo $post['body']?>
-                    </textarea>
-                  </div>
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" checked> Published
-                    </label>
-                  </div>
-                  <input type="submit" class="btn btn-default" value="Submit">
-                </form>
+              <div class="form-group">
+                <label>Post Body</label>
+                <textarea name="post-body" class="form-control" placeholder="Page Body">
+                  <?php echo $post['body']?>
+                </textarea>
               </div>
+              <div class="checkbox">
+                <label>
+                  <input name="post-published" type="checkbox" <?php echo $post['published'] ? 'checked' : '' ?> > Published
+                </label>
               </div>
-
+              <input type="submit" class="btn btn-default" value="Submit">
+            </form>
           </div>
         </div>
+        
       </div>
     </section>
 
@@ -94,12 +84,9 @@
   </footer>
 
   <script>
-     CKEDITOR.replace( 'editor2' );
+     CKEDITOR.replace('post-body');
  </script>
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
   </body>
