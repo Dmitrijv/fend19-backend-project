@@ -77,7 +77,7 @@ $db->closeConnection();
                 </div> -->
               </div>
               <br>
-              <table class="table table-striped table-hover text-center">
+              <table class="admin-post-list table table-striped table-hover text-center">
                 <tr>
                   <th class=" text-center">Title</th>
                   <th class=" text-center">Published</th>

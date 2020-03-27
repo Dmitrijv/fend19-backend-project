@@ -5,3 +5,8 @@ body {
 .container {
   max-width: 970px;
 }
+
+table.admin-post-list tbody > tr > td {
+  height: 10px;
+  vertical-align: middle;
+}

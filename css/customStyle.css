@@ -6,6 +6,11 @@ body {
   max-width: 970px;
 }
 
+table.admin-post-list tbody > tr > td {
+  height: 10px;
+  vertical-align: middle;
+}
+
 #header.public-header {
   display: -webkit-box;
   display: -ms-flexbox;

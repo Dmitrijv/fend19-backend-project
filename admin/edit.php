@@ -1,10 +1,10 @@
 <?php
-require('../php/DBHandler.php');
-$db = new DBHandler();
-$db->connect();
-$editId = $_GET['id'];
-$post = $db->editPost($editId);
-$db->closeConnection();
+  require('../php/DBHandler.php');
+  $db = new DBHandler();
+  $db->connect();
+  $editId = $_GET['id'];
+  $post = $db->editPost($editId);
+  $db->closeConnection();
 ?>
 
 <!-- TODO -->
