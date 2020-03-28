@@ -4,8 +4,6 @@
   if (strtoupper($_SERVER['REQUEST_METHOD']) != 'POST') { die; }
 
   include_once("../../php/cms.php");
-
-  function stringToBoolean($string) { return $string == "on"; }
   
   $newBlogPost = [];
   $newBlogPost['title'] = $_POST["post-title"];
@@ -17,5 +15,7 @@
   header("Location: ../index.php");
   
   die;
+
+  function stringToBoolean($string) { return $string == "on"; }
 
 ?>

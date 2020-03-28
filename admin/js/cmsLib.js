@@ -1,5 +1,5 @@
 cmsLib = (function() {
-  const info = "This library contains functions that asynchronously trigger PHP routines.";
+  const info = "This library contains functions that trigger PHP routines asynchronously.";
   const version = "0.1";
 
   let cmsLib = {

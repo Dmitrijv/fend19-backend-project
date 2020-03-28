@@ -52,7 +52,7 @@ if (!$post) die;
             <h3 class="panel-title">Edit Post</h3>
           </div>
           <div class="panel-body">
-            <form action="php-routines/updateBlogPost.php?postId=<?php echo $post['id'] ?>" method="POST" >
+            <form action="php-routines/updateBlogPost.php" method="POST" >
               <div class="form-group">
                 <label>Post Title</label>
                 <input type="text" name="post-title" class="form-control" placeholder="Page Title" value="<?php echo $post['title'] ?>">

@@ -6,7 +6,7 @@
   include_once("../../php/cms.php");
 
   $updatedBlogPost = [];
-  $updatedBlogPost['id'] = $_GET["postId"];
+  $updatedBlogPost['id'] = $_POST["postId"];
   $updatedBlogPost['published'] = stringToBoolean($_POST["post-published"]);
   $updatedBlogPost['title'] = $_POST["post-title"];
   $updatedBlogPost['body'] = $_POST["post-body"];
