@@ -9,7 +9,6 @@ define('DB_CHAR', 'utf8');
 class DB
 {
 	protected static $instance = null;
-
 	protected function __construct() {}
 	protected function __clone() {}
 

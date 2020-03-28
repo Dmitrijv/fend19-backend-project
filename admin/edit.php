@@ -2,8 +2,8 @@
   
 include_once("../php/cms.php");
 
-if (!isset($_GET["postId"])) { die; }
-$post = CMS::getBlogPost($_GET["postId"]);
+if (!isset($_POST["postId"])) { die; }
+$post = CMS::getBlogPost($_POST["postId"]);
 if (!$post) die;
 
 ?>

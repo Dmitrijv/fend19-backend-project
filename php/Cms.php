@@ -10,7 +10,7 @@ class CMS {
   {
     if (self::$instance == null)
     {
-        self::$instance = new Cms();
+        self::$instance = new CMS();
     } 
     return self::$instance;
   }
@@ -66,7 +66,11 @@ class CMS {
           <td>{$published}</td>
           <td>{$post['date_created']}</td>
           <td>
-            <a href='edit.php?postId={$post['id']}' class='btn btn-default'>Edit</a>
+            <form style='display: inline-block;' action='edit.php' method='POST' >
+              <input class='btn btn-default' type='submit' name='edit' value='Edit'>
+              <input type='hidden' name='postId' value='{$post['id']}'>
+
+            </form>
             <form style='display: inline-block;' onsubmit='cmsLib.deleteBlogPost(event);'>
               <input class='btn btn-danger' data-post-id='{$post['id']}' type='submit' name='delete' value='Delete'>
             </form>
@@ -87,6 +91,7 @@ class CMS {
     $html = "";
     while ($post = $stmt->fetch(PDO::FETCH_LAZY))
     {
+      $iframe = strlen($post['media_iframe']) > 0 ? "<hr>". $post['media_iframe'] : "";
       $html .= "
         <div class='panel panel-default blogpost'>
           <div class='panel-heading'>
@@ -96,9 +101,7 @@ class CMS {
             <small>posted on {$post["date_created"]}</small>
           </div>
           <div class='panel-body'>
-          {$post['body']}
-          </br>
-          {$post['media_iframe']}
+          {$post['body']} {$iframe}
           </div>
         </div>
       ";

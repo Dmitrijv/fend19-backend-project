@@ -6,6 +6,16 @@ body {
   max-width: 930px;
 }
 
+.post-list .blogpost {
+  hr {
+    margin-bottom: 8px;
+  }
+  iframe {
+    width: 100%;
+    height: 250px;
+  }
+}
+
 textarea.form-control {
   min-height: 200px;
   max-width: 100%;

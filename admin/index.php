@@ -44,14 +44,6 @@
             <div class="add-new-post-box">
               <a href="create.php"><i class="fas fa-plus"></i> add a new post</a>
             </div>
-            <!-- filter posts unput field
-            <div class="row">
-              <div class="col-md-12">
-                <input class="form-control" type="text" placeholder="Filter Posts...">
-              </div>
-            </div> -->
-            <div class="error-container">
-            </div>
             <?php CMS::getAdminBlogPostsTable(); ?>
           </div>
         </div>

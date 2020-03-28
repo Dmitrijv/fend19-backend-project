@@ -41,10 +41,10 @@
           </div>
 
           <div class="panel-body">
-            <form action="php-routines/createBlogPost.php" method="POST" >
+            <form action="php-routines/createBlogPost.php" method="POST" enctype="multipart/form-data" >
               <div class="form-group">
                 <label>Cover image</label>
-                <input type="file" name="post-attatched_image" id="fileToUpload">
+                <input type="file" name="post-attatched_image" id="post-attatched_image" accept="image/png, image/jpeg, image/jpg, image/gif" required>
               </div>
               <div class="form-group">
                 <label>Title</label>
