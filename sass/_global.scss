@@ -6,7 +6,8 @@ body {
   max-width: 930px;
 }
 
-.form-control {
+textarea.form-control {
+  min-height: 200px;
   max-width: 100%;
 }
 
