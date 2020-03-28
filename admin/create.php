@@ -49,12 +49,16 @@
             <form action="php-routines/createBlogPost.php" method="POST" >
               <div class="form-group">
                 <label>Title</label>
-                <input name="post-title" type="text" class="form-control" require>
+                <input name="post-title" type="text" class="form-control" required>
               </div>
               <div class="form-group">
                 <label>Body</label>
-                <textarea name="post-body" class="form-control" require>
+                <textarea name="post-body" class="form-control" required>
                 </textarea>
+              </div>
+              <div class="form-group">
+                <label>Embedd a Google Map or a Youtube video</label>
+                <input name="post-media-iframe" type="text" class="form-control" >
               </div>
               <div class="checkbox">
                 <label>
@@ -64,6 +68,7 @@
               <input type="submit" class="btn btn-default" value="Submit">
             </form>
           </div>
+
         </div>
 
       </div>

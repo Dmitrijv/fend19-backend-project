@@ -63,6 +63,10 @@ if (!$post) die;
                   <?php echo $post['body']?>
                 </textarea>
               </div>
+              <div class="form-group">
+                <label>Embedd a Google Map or a Youtube video</label>
+                <input name="post-media_iframe" type="text" class="form-control" value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
+              </div>
               <div class="checkbox">
                 <label>
                   <input name="post-published" type="checkbox" <?php echo $post['published'] ? 'checked' : '' ?> > Published

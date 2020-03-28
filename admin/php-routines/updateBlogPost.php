@@ -7,9 +7,10 @@
 
   $updatedBlogPost = [];
   $updatedBlogPost['id'] = $_POST["postId"];
-  $updatedBlogPost['published'] = stringToBoolean($_POST["post-published"]);
   $updatedBlogPost['title'] = $_POST["post-title"];
   $updatedBlogPost['body'] = $_POST["post-body"];
+  $updatedBlogPost['media_iframe'] = $_POST["post-media_iframe"];
+  $updatedBlogPost['published'] = stringToBoolean($_POST["post-published"]);
   $updatedBlogPost['date_last_edit'] = date("Y-m-d H:i:s", time());
 
   CMS::updateBlogPost($updatedBlogPost);

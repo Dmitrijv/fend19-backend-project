@@ -8,6 +8,8 @@
   $newBlogPost = [];
   $newBlogPost['title'] = $_POST["post-title"];
   $newBlogPost['body'] = $_POST["post-body"];
+  $newBlogPost['attatched_image'] = 'test.jpeg'; //$_POST["post-attatched-image"];
+  $newBlogPost['media_iframe'] = $_POST["post-media_iframe"];
   $newBlogPost['published'] = stringToBoolean($_POST["post-published"]);
   $newBlogPost['date_created'] = date("Y-m-d H:i:s", time());
 

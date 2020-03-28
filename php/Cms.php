@@ -22,8 +22,9 @@ class CMS {
 
   public function createBlogPost($post)
   {
-    $sql = "INSERT INTO post (id, published, title, body, date_created, date_last_edit)  VALUES (NULL, ?, ?, ?, ?, NULL)";
-    DB::run($sql, [$post['published'], $post['title'], $post['body'], $post['date_created']]);
+    $sql = "INSERT INTO post (id, published, title, body, date_created, date_last_edit, attatched_image, media_iframe)
+            VALUES (NULL, ?, ?, ?, ?, NULL, ?, ?)";
+    DB::run($sql, [$post['published'], $post['title'], $post['body'], $post['date_created'], $post['attatched_image'], $post['media_iframe']]);
   }
 
   public function getBlogPost($postId)
@@ -33,8 +34,8 @@ class CMS {
 
   public function updateBlogPost($newPost)
   {
-    $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=? WHERE id=?",
-     [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["id"]]);
+    $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, media_iframe=? WHERE id=?",
+     [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["media_iframe"], $newPost["id"]]);
   }
 
   public function deleteBlogPost($postId)
@@ -99,7 +100,11 @@ class CMS {
           <div class='blogpost-dateposted'> 
             <small>posted on {$post["date_created"]}</small>
           </div>
-          <div class='panel-body'>{$post['body']}</div>
+          <div class='panel-body'>
+          {$post['body']}
+          </br>
+          {$post['media_iframe']}
+          </div>
         </div>
       ";
     }
