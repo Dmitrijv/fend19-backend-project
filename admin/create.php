@@ -14,15 +14,10 @@
   </head>
   <body>
 
-
-  <header id="header" class="public-header">
-    <div class="container">
-
-        <div class="">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Create a new Post</h1>
-        </div>
-
-    </div>
+    <header id="header" class="public-header">
+      <div class="container">
+        <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Create a new Post</h1>
+      </div>
     </header>
 
     <section id="breadcrumb">
@@ -83,10 +78,6 @@
       <p>Nackademin</p>
       <p>2020-03-26</p>
     </footer>
-
-    <!-- <script>
-      CKEDITOR.replace('post-body');
-    </script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
