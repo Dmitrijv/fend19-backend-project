@@ -19,7 +19,7 @@
   $target_dir = "../../img/uploads/";
   $target_file = $target_dir . basename($_FILES["post-attatched_image"]["name"]);
  
-  if (!UTILS::isAttatchedImageValid($target_file)) { header("Location: ../create.php"); die; }
+  if (UTILS::isAttatchedImageValid($target_file) === false) { header("Location: ../create.php"); die; }
 
   // save image
   move_uploaded_file($_FILES["post-attatched_image"]["tmp_name"], $target_file);

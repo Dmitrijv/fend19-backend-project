@@ -4,7 +4,6 @@ include_once("../php/cms.php");
 
 if (!isset($_POST["postId"])) { die; }
 $post = CMS::getBlogPost($_POST["postId"]);
-if (!$post) die;
 
 ?>
 
@@ -88,9 +87,9 @@ if (!$post) die;
     <p>2020-03-26</p>
   </footer>
 
-  <script>
+  <!-- <script>
      CKEDITOR.replace('post-body');
- </script>
+ </script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
