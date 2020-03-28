@@ -69,6 +69,7 @@ if (!$post) die;
                 </label>
               </div>
               <input type="submit" class="btn btn-default" value="Submit">
+              <input type="hidden" name="postId" value="<?php echo $post['id']; ?>">
             </form>
           </div>
         </div>
