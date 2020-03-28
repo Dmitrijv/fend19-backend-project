@@ -6,6 +6,10 @@ body {
   max-width: 930px;
 }
 
+.form-control {
+  max-width: 100%;
+}
+
 table.admin-post-list {
   margin-top: 20px;
 }

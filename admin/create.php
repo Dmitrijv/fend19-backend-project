@@ -48,13 +48,16 @@
           <div class="panel-body">
             <form action="php-routines/createBlogPost.php" method="POST" >
               <div class="form-group">
+                <label>Cover image</label>
+                <input type="file" name="post-attatched_image" id="fileToUpload">
+              </div>
+              <div class="form-group">
                 <label>Title</label>
                 <input name="post-title" type="text" class="form-control" required>
               </div>
               <div class="form-group">
                 <label>Body</label>
-                <textarea name="post-body" class="form-control" required>
-                </textarea>
+                <textarea name="post-body" class="form-control" required></textarea>
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video</label>
@@ -81,9 +84,9 @@
       <p>2020-03-26</p>
     </footer>
 
-    <script>
+    <!-- <script>
       CKEDITOR.replace('post-body');
-    </script>
+    </script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
