@@ -5,7 +5,8 @@ cmsLib = (function() {
   let cmsLib = {
     deleteBlogPost: function(event) {
       if (confirm("Are you sure?")) {
-        const postId = event.submitter.dataset.postId;
+        const button = event.target.elements.delete;
+        const postId = button.dataset.postId;
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
