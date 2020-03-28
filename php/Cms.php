@@ -5,12 +5,7 @@ include_once("db.php");
 class CMS {
 
   private static $instance = null;
-
-  private function __construct()
-  {
-    // any expensive init process goes here
-  }
-
+  private function __construct() { }
   public static function getInstance()
   {
     if (self::$instance == null)
