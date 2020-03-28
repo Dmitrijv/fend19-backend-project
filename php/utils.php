@@ -18,15 +18,13 @@ class UTILS {
   public function formStringToParagraphHtml($string)
   {
 
-    function wrapLineInParagraph($html, $str){
-      if ($str == "") return $html;
-      return $html .= "<p>".$str."</p>";
+    function wrapLineInParagraph($html, $line){
+      if ($line == "") return $html;
+      return $html .= "<p>".$line."</p>";
     }
 
     $lines = explode("\n", $string);
-    var_dump($lines);
-    $html = array_reduce($lines, "wrapLineInParagraph", "");
-    return $html;
+    return array_reduce($lines, "wrapLineInParagraph", "");
      
   }
 
