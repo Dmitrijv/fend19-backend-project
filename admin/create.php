@@ -55,7 +55,7 @@
                 <textarea name="post-body" class="form-control" required></textarea>
               </div>
               <div class="form-group">
-                <label>Embedd a Google Map or a Youtube video</label>
+                <label>Embedd a Google Map or a Youtube video iframe</label>
                 <input name="post-media-iframe" type="text" class="form-control" pattern="<iframe.*<\/iframe>" >
               </div>
               <div class="checkbox">
