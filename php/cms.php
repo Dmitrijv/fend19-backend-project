@@ -48,7 +48,7 @@ class CMS {
 
   public function getNumberOfBlogPosts()
   {
-    return DB::run("SELECT count(*) FROM users")->fetchColumn();
+    return DB::run("SELECT count(*) FROM post")->fetchColumn();
   }
 
   public function getAdminBlogPostsTable()

@@ -20,4 +20,10 @@ textarea.form-control {
 input#post-attatched_image {
   padding-top: 5px;
 }
+
+div.panel span.total-post-count {
+  background-color: #555;
+  color: white;
+  padding: 2px 6px;
+}
 /*# sourceMappingURL=adminPanelStyle.css.map */

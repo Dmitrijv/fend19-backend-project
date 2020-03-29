@@ -38,7 +38,7 @@
         <!-- Post History Overview -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">Posts</h3>
+            <h3 class="panel-title">There are <span class="total-post-count"><?php echo CMS::getNumberOfBlogPosts(); ?></span> blog posts in the database.</h3>
           </div>
           <div class="panel-body">
             <div class="add-new-post-box">
