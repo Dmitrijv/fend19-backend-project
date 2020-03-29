@@ -84,6 +84,10 @@ table.admin-post-list tbody > tr > td.post-title {
   width: 105px;
 }
 
+.noShow {
+  display: none;
+}
+
 div.add-new-post-box a {
   display: block;
   width: -webkit-fit-content;

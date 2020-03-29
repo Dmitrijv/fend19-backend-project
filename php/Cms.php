@@ -101,7 +101,7 @@ class CMS {
             <small>posted on {$post["date_created"]}</small>
           </div>
           <div class='blogpost-image'>
-            <img src='img/uploads/{$post["attatched_image"]}'>
+            <img class='imgToCheck' src='img/uploads/{$post["attatched_image"]}'>
           </div>
           <div class='panel-body'>
           {$post['body']} {$iframe}
