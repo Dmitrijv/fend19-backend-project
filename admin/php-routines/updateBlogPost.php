@@ -14,25 +14,18 @@
   $updatedBlogPost['published'] = UTILS::formCheckboxValueToBoolean($_POST["post-published"]);
   $updatedBlogPost['date_last_edit'] = date("Y-m-d H:i:s", time());
 
-  var_dump($_FILES);
-
   // check if user uploaded a new cover image
   if (strlen($_FILES["post-attatched_image"]["name"]) > 0) {
-    
+
     $img_target_dir = "../../img/uploads/";
     $target_file = $img_target_dir . basename($_FILES["post-attatched_image"]["name"]);
-    
     if (isAttatchedImageValid($target_file) === false) {
       header("Location: ../error.php?errName=Invalid Cover Image&errMsg=Uploaded image file is invalid.");
       die;
     }
 
-    // save new image file
     move_uploaded_file($_FILES["post-attatched_image"]["tmp_name"], $target_file);
     $updatedBlogPost['attatched_image'] = $_FILES["post-attatched_image"]["name"];
-
-    // delete old image
-    UTILS::deleteFile($_POST['post-current_image']);
 
   } else {
     $updatedBlogPost['attatched_image'] = $_POST['post-current_image'];
