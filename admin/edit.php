@@ -65,7 +65,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
                 <label>Update cover image</label>                
                 <p><?php echo $post["attatched_image"] ?></p>
                 <img class="small-img-on-edit" src="../img/uploads/<?php echo $post["attatched_image"] ?>" alt="post-img">
-                <input type="file" name="post-attatched_image" id="post-attatched_image" accept="image/png, image/jpeg, image/jpg, image/gif" >
+                <input type="file" name="post-attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" >
                 <input type="hidden" name="post-current_image" value="<?php echo $post['attatched_image']; ?>">
               </div>
               <div class="form-group">
@@ -86,14 +86,8 @@ $post = CMS::getBlogPost($_POST["postId"]);
       </div>
     </section>
 
-    <!-- <footer id="footer">
-      <p>FEND19 - Backend - CMS</p>
-      <p>Dmitrij Velström, Shan Mi</p>
-      <p>Nackademin</p>
-      <p>2020-03-26</p>
-    </footer> -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    
   </body>
 </html>

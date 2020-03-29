@@ -17,16 +17,19 @@
   var_dump($_FILES);
 
   // check if user uploaded a new cover image
-  if (strlen($_FILES["post-attatched_image"]["name"]) > 0)
-  {
+  if (strlen($_FILES["post-attatched_image"]["name"]) > 0) {
+    
     $img_target_dir = "../../img/uploads/";
     $target_file = $img_target_dir . basename($_FILES["post-attatched_image"]["name"]);
-    if (isAttatchedImageValid($target_file) === false) { 
-      header("Location: ../create.php");
+    
+    if (isAttatchedImageValid($target_file) === false) {
+      header("Location: ../error.php?errName=Invalid Cover Image&errMsg=Uploaded image file is invalid.");
       die;
     }
+
     move_uploaded_file($_FILES["post-attatched_image"]["tmp_name"], $target_file);
     $updatedBlogPost['attatched_image'] = $_FILES["post-attatched_image"]["name"];
+    
   // othewise use the old image
   } else {
     $updatedBlogPost['attatched_image'] = $_POST['post-current_image'];
@@ -35,8 +38,6 @@
   CMS::updateBlogPost($updatedBlogPost);
   header("Location: ../index.php");
   die;
-
-
 
   function isAttatchedImageValid($target_file)
   {

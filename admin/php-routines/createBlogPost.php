@@ -5,8 +5,7 @@
 
   // no file was uploaded
   if(strlen($_FILES["post-attatched_image"]["name"]) < 0) { 
-    echo "no file was uploaded";
-    header("Location: ../create.php");
+    header("Location: ../error.php?errName=No Cover Image&errMsg=No cover image was uploaded.");
     die;
   }
 
@@ -23,7 +22,10 @@
   $img_target_dir = "../../img/uploads/";
   $target_file = $img_target_dir . basename($_FILES["post-attatched_image"]["name"]);
  
-  if (isAttatchedImageValid($target_file) === false) { header("Location: ../create.php"); die; }
+  if (isAttatchedImageValid($target_file) === false) {
+    header("Location: ../error.php?errName=Invalid Cover Image&errMsg=Uploaded image file is invalid.");
+    die;
+  }
 
   // save image
   move_uploaded_file($_FILES["post-attatched_image"]["tmp_name"], $target_file);

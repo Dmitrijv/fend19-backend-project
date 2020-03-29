@@ -16,9 +16,9 @@ body {
   height: 250px;
 }
 
-textarea.form-control {
-  min-height: 200px;
+.textarea.form-control {
   max-width: 100%;
+  min-height: 200px;
 }
 
 table.admin-post-list {
@@ -44,8 +44,8 @@ table.admin-post-list tbody > tr > td.post-title {
   min-height: 20vh;
   padding-bottom: 0;
   margin-bottom: 30px;
-  background-image: -webkit-gradient(linear, left bottom, left top, from(#01000c), color-stop(35%, rgba(255, 255, 255, 0))), url("../img/alena-aenami-over-the-city1k.jpg");
-  background-image: linear-gradient(0deg, #01000c 0%, rgba(255, 255, 255, 0) 35%), url("../img/alena-aenami-over-the-city1k.jpg");
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#01000c), color-stop(35%, rgba(255, 255, 255, 0))), url("../img/public_header_background.jpg");
+  background-image: linear-gradient(0deg, #01000c 0%, rgba(255, 255, 255, 0) 35%), url("../img/public_header_background.jpg");
   background-position: center 66%;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);

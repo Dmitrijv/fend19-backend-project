@@ -1,0 +1,13 @@
+div.panel-error {
+  .error-panel-heading {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+  }
+}
+
+div.panel-error .error-panel-heading {
+  h3 {
+    color: #ffffff;
+    font-weight: bold;
+  }
+}
