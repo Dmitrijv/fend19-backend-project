@@ -205,3 +205,20 @@ div.add-new-post-box a:hover {
 .breadcrumb>.active>a {
   color: #777;
 }
+
+.blogpost .blogpost-image {
+  width: 50%;
+  margin: 15px 15px;
+}
+
+.blogpost .blogpost-image img {
+  width: 100%;
+}
+
+.small-img-on-edit {
+  width: 105px;
+}
+
+.noShow {
+  display: none;
+}
