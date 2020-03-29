@@ -30,7 +30,7 @@ class CMS {
 
   public function updateBlogPost($newPost)
   {
-    // delete cover image
+    // delete old cover image before updating fields
     $coverImage = DB::run("SELECT attatched_image FROM post WHERE id = ?", [$newPost["id"]])->fetchColumn();
     if (isset($coverImage)) { UTILS::deleteFile($coverImage); }    
     $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, attatched_image=?, media_iframe=? WHERE id=?",
