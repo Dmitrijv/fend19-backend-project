@@ -18,7 +18,6 @@ class UTILS {
   {
     function wrapLineInParagraph($html, $line)
     {
-      // echo $line;
       if ($line == "") return $html;
       return $html .= "<p>".$line."</p>";
     }
