@@ -1,14 +1,13 @@
 <?php
 
-include_once("php/utils.php");
-include_once("php/cms.php");
+  // include_once("../../php/cms.php");
+  // include_once("../../php/db.php");
+  include_once("php/cms.php");
+  include_once("php/db.php");
 
-$post = CMS::getBlogPost(91);
-
-$body = $post['body'];
-
-echo UTILS::fromParagraphHtmlToString($body);
-
+  $postId = 112;
+      
+  CMS::deleteBlogPost($postId);
 
 
 ?>

@@ -33,6 +33,10 @@ class UTILS {
     return $str;
   }
 
+  public function deleteFile($fileName) {
+    unlink(__DIR__ ."/../img/uploads/".$fileName);
+  }
+
 }
 
 ?>

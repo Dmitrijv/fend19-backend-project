@@ -1,6 +1,7 @@
 <?php
 
 include_once("db.php");
+include_once("utils.php");
 
 class CMS {
 
@@ -35,6 +36,10 @@ class CMS {
 
   public function deleteBlogPost($postId)
   {
+    // delete cover image
+    $coverImage = DB::run("SELECT attatched_image FROM post WHERE id = ?", [$postId])->fetchColumn();
+    if (isset($coverImage)) { UTILS::deleteFile($coverImage); }
+    // delete database entry
     DB::run("DELETE FROM post WHERE id = ?", [$postId]);
   }  
 
