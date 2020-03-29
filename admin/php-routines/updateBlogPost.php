@@ -27,10 +27,13 @@
       die;
     }
 
+    // save new image file
     move_uploaded_file($_FILES["post-attatched_image"]["tmp_name"], $target_file);
     $updatedBlogPost['attatched_image'] = $_FILES["post-attatched_image"]["name"];
-    
-  // othewise use the old image
+
+    // delete old image
+    UTILS::deleteFile($_POST['post-current_image']);
+
   } else {
     $updatedBlogPost['attatched_image'] = $_POST['post-current_image'];
   }
