@@ -1,7 +1,7 @@
 <?php 
 
   $errorName = isset($_GET['errName']) ? $_GET['errName'] : "Unknown error";
-  $errorMessage = isset($_GET['errMsg']) ? $_GET['errMsg'] : "Unknown error";
+  $errorMessage = isset($_GET['errMsg']) ? $_GET['errMsg'] : "An unknown error occured.";
 
 ?>
 
