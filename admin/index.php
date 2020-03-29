@@ -13,7 +13,7 @@
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <!-- <link href="../css/customStyle.css" rel="stylesheet"> -->
+    <link href="../css/adminPanelStyle.css" rel="stylesheet">
   </head>
 
   <body>
@@ -51,12 +51,12 @@
       </div>
     </section>
 
-    <footer id="footer">
+    <!-- <footer id="footer">
       <p>FEND19 - Backend - CMS</p>
       <p>Dmitrij Velström, Shan Mi</p>
       <p>Nackademin</p>
       <p>2020-03-26</p>
-    </footer>
+    </footer> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>

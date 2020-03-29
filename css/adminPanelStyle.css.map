@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,MAAM;CACnB;;AAED,AAAA,QAAQ,AAAA,aAAa,CAAC;EACpB,SAAS,EAAE,IAAI;EACf,UAAU,EAAE,KAAK;CAClB;;AAED,AAAA,KAAK,AAAA,qBAAqB,CAAC;EACzB,WAAW,EAAE,GAAG;CACjB",
+    "sources": [
+        "../sass/adminPanelStyle.scss"
+    ],
+    "names": [],
+    "file": "adminPanelStyle.css"
+}

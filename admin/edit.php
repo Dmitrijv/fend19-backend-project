@@ -22,7 +22,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
     <link href="../css/style.css" rel="stylesheet">
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
     <!-- Custom CSS -->
-    <!-- <link href="../css/customStyle.css" rel="stylesheet">       -->
+    <link href="../css/adminPanelStyle.css" rel="stylesheet">
   </head>
 
   <body>
@@ -59,7 +59,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
               </div>
               <div class="form-group">
                 <label>Post Body</label>
-                <textarea name="post-body" class="form-control" placeholder="Page Body"><?php echo UTILS::fromParagraphHtmlToString($post['body']); ?></textarea>
+                <textarea name="post-body" class="form-control"><?php echo UTILS::fromParagraphHtmlToString($post['body']); ?></textarea>
               </div>
               <div class="form-group">
                 <label>Update cover image</label>                
@@ -70,7 +70,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video</label>
-                <input name="post-media_iframe" type="text" class="form-control" value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
+                <input name="post-media_iframe" type="text" class="form-control" pattern="<iframe.*<\/iframe>" value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
               </div>
               <div class="checkbox">
                 <label>
@@ -86,12 +86,12 @@ $post = CMS::getBlogPost($_POST["postId"]);
       </div>
     </section>
 
-    <footer id="footer">
+    <!-- <footer id="footer">
       <p>FEND19 - Backend - CMS</p>
       <p>Dmitrij Velström, Shan Mi</p>
       <p>Nackademin</p>
       <p>2020-03-26</p>
-    </footer>
+    </footer> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>

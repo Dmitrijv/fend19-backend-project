@@ -1,0 +1,13 @@
+body {
+  overflow-y: scroll;
+}
+
+textarea.form-control {
+  max-width: 100%;
+  min-height: 200px;
+}
+
+input#post-attatched_image {
+  padding-top: 5px;
+}
+/*# sourceMappingURL=adminPanelStyle.css.map */
