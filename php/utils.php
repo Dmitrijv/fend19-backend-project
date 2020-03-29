@@ -21,7 +21,7 @@ class UTILS {
       if ($line == "") return $html;
       return $html .= "<p>".$line."</p>";
     }
-    $lines = explode("\n", $string);
+    $lines = explode("\r\n", $string);
     return array_reduce($lines, "wrapLineInParagraph", "");
   }
 
@@ -29,25 +29,8 @@ class UTILS {
   {
     $dom = str_get_html($html);
     $str = "";
-    foreach($dom->find('p') as $p) { $str .= $p->innertext . "\n"; }
+    foreach($dom->find('p') as $p) { $str .= $p->innertext . "\n\r"; }
     return $str;
-  }
-
-  public function isAttatchedImageValid($target_file)
-  {
-    $allowedExtentions = ["gif", "jpeg", "jpg", "png"];
-
-    // check if format is allowed
-    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-    if(!in_array($imageFileType, $allowedExtentions)) { echo "bad format"; return false; }
-
-    // check if image file is a actual image or fake image
-    if(getimagesize($_FILES["post-attatched_image"]["tmp_name"]) === false) { echo "not image"; return false; }
-
-    // check file size
-    if ($_FILES["post-attatched_image"]["size"] > 1500000) { echo "filesize too big"; return false; }
-
-    return true;
   }
 
 }

@@ -108,6 +108,7 @@ table.admin-post-list tbody > tr > td.post-title {
 
 .small-img-on-edit {
   width: 105px;
+  margin-bottom: 6px;
 }
 
 .noShow {

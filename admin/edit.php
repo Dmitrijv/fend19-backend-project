@@ -52,7 +52,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
             <h3 class="panel-title">Edit Post</h3>
           </div>
           <div class="panel-body">
-            <form action="php-routines/updateBlogPost.php" method="POST" >
+            <form action="php-routines/updateBlogPost.php" method="POST" enctype="multipart/form-data">
               <div class="form-group">
                 <label>Post Title</label>
                 <input type="text" name="post-title" class="form-control" placeholder="Page Title" value="<?php echo $post['title'] ?>">
@@ -62,9 +62,11 @@ $post = CMS::getBlogPost($_POST["postId"]);
                 <textarea name="post-body" class="form-control" placeholder="Page Body"><?php echo UTILS::fromParagraphHtmlToString($post['body']); ?></textarea>
               </div>
               <div class="form-group">
-                <label>Uploaded image</label>                
+                <label>Update cover image</label>                
                 <p><?php echo $post["attatched_image"] ?></p>
                 <img class="small-img-on-edit" src="../img/uploads/<?php echo $post["attatched_image"] ?>" alt="post-img">
+                <input type="file" name="post-attatched_image" id="post-attatched_image" accept="image/png, image/jpeg, image/jpg, image/gif" >
+                <input type="hidden" name="post-current_image" value="<?php echo $post['attatched_image']; ?>">
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video</label>

@@ -29,7 +29,7 @@ class CMS {
 
   public function updateBlogPost($newPost)
   {
-    $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, attatched_image=? media_iframe=? WHERE id=?",
+    $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, attatched_image=?, media_iframe=? WHERE id=?",
      [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["attatched_image"], $newPost["media_iframe"], $newPost["id"]]);
   }
 
@@ -103,9 +103,7 @@ class CMS {
           <div class='blogpost-image'>
             <img class='imgToCheck' src='img/uploads/{$post["attatched_image"]}'>
           </div>
-          <div class='panel-body'>
-          {$post['body']} {$iframe}
-          </div>
+          <div class='panel-body'>{$post['body']}{$iframe}</div>
         </div>
       ";
     }
@@ -115,4 +113,3 @@ class CMS {
 }
 
 ?>
-
