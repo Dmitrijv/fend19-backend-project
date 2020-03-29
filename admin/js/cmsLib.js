@@ -10,6 +10,10 @@ cmsLib = (function() {
         const xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
           if (this.readyState == 4 && this.status == 200) {
+            // update post counter
+            let oldCount = Number(document.querySelector(`span.total-post-count`).textContent);
+            document.querySelector(`span.total-post-count`).textContent = oldCount - 1;
+            // remove deleted row
             document.querySelector(`tr[data-post-id="${postId}"]`).remove();
           }
         };
