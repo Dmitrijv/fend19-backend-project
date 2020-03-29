@@ -28,7 +28,7 @@
       <div class="container">
         <ol class="breadcrumb">
           <li><a href="../index.php">Home</a></li>
-          <li class="active"><a href="index.php">Dashboard</a></li>
+          <li class="active">Dashboard</li>
         </ol>
       </div>
     </section>
