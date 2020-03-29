@@ -44,7 +44,7 @@
     // check if image file is a actual image or fake image
     if(getimagesize($_FILES["post-attatched_image"]["tmp_name"]) === false) { echo "not image"; return false; }
     // check file size
-    if ($_FILES["post-attatched_image"]["size"] > 1500000) { echo "filesize too big"; return false; }
+    if ($_FILES["post-attatched_image"]["size"] > 9500000) { echo "filesize too big"; return false; }
     return true;
   }
 

@@ -1,19 +1,16 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 body {
   overflow-y: scroll;
   min-width: 320px;
+  background-color: #ebebeb !important;
 }
 
 .container {
   max-width: 930px;
-}
-
-.post-list .blogpost hr {
-  margin-bottom: 8px;
-}
-
-.post-list .blogpost iframe {
-  width: 100%;
-  height: 250px;
 }
 
 .textarea.form-control {
@@ -32,6 +29,36 @@ table.admin-post-list tbody > tr > td {
 
 table.admin-post-list tbody > tr > td.post-title {
   text-align: left;
+}
+
+img.img-fluid {
+  vertical-align: middle;
+  border-style: none;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.noShow {
+  display: none;
+}
+
+footer p.bold {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+footer p {
+  margin: 0;
+  font-size: 16px;
+}
+
+footer p + p {
+  margin-top: 0px;
 }
 
 #header.public-header {
@@ -74,39 +101,43 @@ table.admin-post-list tbody > tr > td.post-title {
   }
 }
 
-.blogpost .panel-heading {
-  background-color: lightgray;
+.blogpost {
+  margin-bottom: 12px;
+  padding: 12px;
+  background-color: white;
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.15);
+  word-wrap: break-word;
+  border-top: 2px solid #333333;
 }
 
-.blogpost .blogpost-dateposted {
-  margin: 15px 15px 0 15px;
-  padding: 2px;
-  max-width: -webkit-fit-content;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
-  background-color: #f5f5f5;
-  border: 1px solid #e3e3e3;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+.blogpost .blogpost-cover-container {
+  margin: -12px -12px 15px -12px;
 }
 
-.blogpost .blogpost-image {
-  width: 50%;
-  margin: 15px 15px;
+.blogpost .blogpost-cover-container img {
+  max-height: 400px;
 }
 
-.blogpost .blogpost-image img {
+.blogpost h2.blogpost-title {
+  margin: 0px 15px 6px;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.blogpost .date-posted-container {
+  color: gray;
+  font-style: italic;
+  margin: 0 15px;
+}
+
+.blogpost hr {
+  margin-bottom: 8px;
+}
+
+.blogpost .blogpost-iframe-container iframe {
   width: 100%;
-}
-
-.small-img-on-edit {
-  width: 105px;
-  margin-bottom: 6px;
-}
-
-.noShow {
-  display: none;
+  height: 250px;
 }
 
 div.add-new-post-box a {

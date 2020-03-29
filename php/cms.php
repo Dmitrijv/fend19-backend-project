@@ -32,7 +32,7 @@ class CMS {
   {
     // delete old cover image before updating fields
     $coverImage = DB::run("SELECT attatched_image FROM post WHERE id = ?", [$newPost["id"]])->fetchColumn();
-    if (isset($coverImage)) { UTILS::deleteFile($coverImage); }    
+    if (isset($coverImage) && $newPost["attatched_image"] !== $coverImage) { UTILS::deleteFile($coverImage); }
     $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, attatched_image=?, media_iframe=? WHERE id=?",
      [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["attatched_image"], $newPost["media_iframe"], $newPost["id"]]);
   }
@@ -99,19 +99,14 @@ class CMS {
     $html = "";
     while ($post = $stmt->fetch(PDO::FETCH_LAZY))
     {
-      $iframe = strlen($post['media_iframe']) > 0 ? "<hr>". $post['media_iframe'] : "";
+      $iframe = strlen($post['media_iframe']) > 0 ? $post['media_iframe'] : "";
       $html .= "
-        <div class='panel panel-default blogpost'>
-          <div class='panel-heading'>
-            <h2 class='panel-title'>{$post["title"]}</h2>
-          </div>
-          <div class='blogpost-dateposted'> 
-            <small>posted on {$post["date_created"]}</small>
-          </div>
-          <div class='blogpost-image'>
-            <img class='imgToCheck' src='img/uploads/{$post["attatched_image"]}'>
-          </div>
-          <div class='panel-body'>{$post['body']}{$iframe}</div>
+        <div class='blogpost'>
+          <div class='blogpost-cover-container'></dib><img class='img-fluid' src='img/uploads/{$post["attatched_image"]}'></div>
+          <h2 class='blogpost-title'>{$post["title"]}</h2>
+          <div class='date-posted-container'>posted on {$post["date_created"]}</div>
+          <div class='panel-body'>{$post['body']}</div>
+          <div class='blogpost-iframe-container'>{$iframe}</div>
         </div>
       ";
     }

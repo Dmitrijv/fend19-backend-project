@@ -32,10 +32,10 @@
     </section>
 
     <footer id="footer">
-      <p>FEND19 - Backend - CMS</p>
+      <p class="bold">FEND19 - Backend - CMS</p>
       <p>Dmitrij Velström, Shan Mi</p>
       <p>Nackademin</p>
-      <p>2020-03-26</p>
+      <p>2020-03-29</p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

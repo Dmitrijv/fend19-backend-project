@@ -27,4 +27,9 @@ div.panel span.total-post-count {
   padding: 2px 6px;
   font-weight: bold;
 }
+
+.small-img-on-edit {
+  width: 105px;
+  margin-bottom: 6px;
+}
 /*# sourceMappingURL=adminPanelStyle.css.map */
