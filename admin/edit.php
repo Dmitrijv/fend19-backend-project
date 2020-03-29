@@ -1,6 +1,7 @@
 <?php
   
 include_once("../php/cms.php");
+include_once("../php/utils.php");
 
 if (!isset($_POST["postId"])) { die; }
 $post = CMS::getBlogPost($_POST["postId"]);
@@ -58,9 +59,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
               </div>
               <div class="form-group">
                 <label>Post Body</label>
-                <textarea name="post-body" class="form-control" placeholder="Page Body">
-                  <?php echo $post['body']?>
-                </textarea>
+                <textarea name="post-body" class="form-control" placeholder="Page Body"><?php echo UTILS::fromParagraphHtmlToString($post['body']); ?></textarea>
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video</label>
@@ -80,16 +79,12 @@ $post = CMS::getBlogPost($_POST["postId"]);
       </div>
     </section>
 
-  <footer id="footer">
-    <p>FEND19 - Backend - CMS</p>
-    <p>Dmitrij Velström, Shan Mi</p>
-    <p>Nackademin</p>
-    <p>2020-03-26</p>
-  </footer>
-
-  <!-- <script>
-     CKEDITOR.replace('post-body');
- </script> -->
+    <footer id="footer">
+      <p>FEND19 - Backend - CMS</p>
+      <p>Dmitrij Velström, Shan Mi</p>
+      <p>Nackademin</p>
+      <p>2020-03-26</p>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>

@@ -1,5 +1,7 @@
 <?php
 
+require_once('simple_html_dom.php');
+
 class UTILS {
 
   private static $instance = null;
@@ -16,6 +18,7 @@ class UTILS {
   {
     function wrapLineInParagraph($html, $line)
     {
+      // echo $line;
       if ($line == "") return $html;
       return $html .= "<p>".$line."</p>";
     }
@@ -25,6 +28,9 @@ class UTILS {
 
   public function fromParagraphHtmlToString($html)
   {
+    $dom = str_get_html($html);
+    $str = "";
+    foreach($dom->find('p') as $p) { $str .= $p->innertext . "\n"; }
     return $str;
   }
 
@@ -40,7 +46,7 @@ class UTILS {
     if(getimagesize($_FILES["post-attatched_image"]["tmp_name"]) === false) { echo "not image"; return false; }
 
     // check file size
-    if ($_FILES["post-attatched_image"]["size"] > 500000) { echo "filesize too big"; return false; }
+    if ($_FILES["post-attatched_image"]["size"] > 1500000) { echo "filesize too big"; return false; }
 
     return true;
   }
