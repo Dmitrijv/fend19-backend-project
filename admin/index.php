@@ -13,7 +13,7 @@
     <link href="../css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <!-- Custom CSS -->
-    <link href="../css/customStyle.css" rel="stylesheet">
+    <!-- <link href="../css/customStyle.css" rel="stylesheet"> -->
   </head>
 
   <body>

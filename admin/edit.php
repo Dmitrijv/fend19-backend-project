@@ -22,7 +22,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
     <link href="../css/style.css" rel="stylesheet">
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
     <!-- Custom CSS -->
-    <link href="../css/customStyle.css" rel="stylesheet">      
+    <!-- <link href="../css/customStyle.css" rel="stylesheet">       -->
   </head>
 
   <body>
