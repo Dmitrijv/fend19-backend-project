@@ -19,7 +19,7 @@
 
     <header id="header" class="public-header">
       <div class="container">
-        <h1></span> FEND19 - Backend - CMS <small>by Dmitrij Velström & Shan Mi</small></h1>
+        <h1>FEND19 - Backend - CMS <small>by Dmitrij Velström & Shan Mi</small></h1>
       </div>
     </header>
 

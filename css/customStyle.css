@@ -51,32 +51,26 @@ table.admin-post-list tbody > tr > td.post-title {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-@media only screen and (max-width: 940px) {
-  #header.public-header {
-    min-height: 12vh;
-  }
-}
-
-@media only screen and (max-width: 940px) {
-  #header.public-header .container {
-    margin: auto;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  #header.public-header .container h1 {
-    font-size: calc(16px + 6 * ((100vw - 310px) / 680));
-  }
-}
-
 #header.public-header .container h1 small {
   color: lightgrey;
 }
 
-@media only screen and (max-width: 425px) {
-  #header.public-header .container h1 small::before {
-    content: ' ';
+@media screen and (max-width: 1000px) {
+  #header.public-header .container h1 small {
     display: block;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #header.public-header .container {
+    margin-left: 15px;
+    padding-left: 3px;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  #header.public-header .container h1 {
+    font-size: calc(16px + 6 * ((100vw) / 380));
   }
 }
 
