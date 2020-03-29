@@ -29,8 +29,8 @@ class CMS {
 
   public function updateBlogPost($newPost)
   {
-    $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, media_iframe=? WHERE id=?",
-     [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["media_iframe"], $newPost["id"]]);
+    $stmt = DB::run("UPDATE post SET published=?, title=?, body=?, date_last_edit=?, attatched_image=? media_iframe=? WHERE id=?",
+     [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["attatched_image"], $newPost["media_iframe"], $newPost["id"]]);
   }
 
   public function deleteBlogPost($postId)
@@ -99,6 +99,9 @@ class CMS {
           </div>
           <div class='blogpost-dateposted'> 
             <small>posted on {$post["date_created"]}</small>
+          </div>
+          <div class='blogpost-image'>
+            <img src='img/uploads/{$post["attatched_image"]}'>
           </div>
           <div class='panel-body'>
           {$post['body']} {$iframe}
