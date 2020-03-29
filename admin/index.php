@@ -38,7 +38,12 @@
         <!-- Post History Overview -->
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title">There are <span class="total-post-count"><?php echo CMS::getNumberOfBlogPosts(); ?></span> blog posts in the database.</h3>
+            <h3 class="panel-title">There 
+              <?php 
+                $count = CMS::getNumberOfBlogPosts();
+                echo $count === 1 ? 'is <span class="total-post-count">'.$count.'</span> blog post' : 'are <span class="total-post-count">'.$count.'</span> blog posts';
+              ?>
+              in the database.</h3>
           </div>
           <div class="panel-body">
             <div class="add-new-post-box">
