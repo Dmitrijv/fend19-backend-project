@@ -62,6 +62,11 @@ $post = CMS::getBlogPost($_POST["postId"]);
                 <textarea name="post-body" class="form-control" placeholder="Page Body"><?php echo UTILS::fromParagraphHtmlToString($post['body']); ?></textarea>
               </div>
               <div class="form-group">
+                <label>Uploaded image</label>                
+                <p><?php echo $post["attatched_image"] ?></p>
+                <img class="small-img-on-edit" src="../img/uploads/<?php echo $post["attatched_image"] ?>" alt="post-img">
+              </div>
+              <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video</label>
                 <input name="post-media_iframe" type="text" class="form-control" value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
               </div>
