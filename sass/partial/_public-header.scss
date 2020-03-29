@@ -6,14 +6,39 @@
   padding-bottom: 0;
   margin-bottom: 30px;
 
-  background-image: linear-gradient(0deg, rgb(1, 0, 12) 0%, rgba(255, 255, 255, 0) 35%),
+  background-image: linear-gradient(
+      0deg,
+      rgb(1, 0, 12) 0%,
+      rgba(255, 255, 255, 0) 35%
+    ),
     url("../img/alena-aenami-over-the-city1k.jpg");
   background-position: center 66%;
 
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 
-  small {
-    color: lightgrey;
+  //desktop first
+  @media only screen and (max-width: 940px) {
+    min-height: 12vh;
+  }
+
+  .container {
+    @media only screen and (max-width: 940px) {
+      margin: auto;
+    }
+    h1 {
+      @media only screen and (max-width: 991px) {
+        font-size: calc(16px + 6 * ((100vw - 310px) / 680));
+      }
+      small {
+        color: lightgrey;
+        @media only screen and (max-width: 425px){
+          &::before {
+            content: ' ';
+            display: block;
+          }
+        }
+      }
+    }
   }
 }
