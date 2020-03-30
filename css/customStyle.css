@@ -135,6 +135,10 @@ footer p + p {
   margin-bottom: 8px;
 }
 
+.blogpost .blogpost-iframe-container {
+  padding: 0 15px;
+}
+
 .blogpost .blogpost-iframe-container iframe {
   width: 100%;
   height: 250px;
