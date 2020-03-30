@@ -37,6 +37,12 @@ class UTILS {
     unlink(__DIR__ ."/../img/uploads/".$fileName);
   }
 
+  public function isIframeValid($iframe) {
+    $regGoogleMap = '/<iframe\s*src="https:\/\/www\.google\.com\/maps\/embed\?[^"]+"*\s*[^>]+>*<\/iframe>/';
+    $regYouTube = '/<iframe[^>]*src\s*=\s*"?https?:\/\/[^\s"\/]*\.youtube.com\/embed\/(?:\/[^\s"]*)?"?[^>]*>.*?<\/iframe>/';
+    return preg_match($regGoogleMap, $iframe) || preg_match($regYouTube, $iframe);
+  }  
+
 }
 
 ?>

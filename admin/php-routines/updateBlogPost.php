@@ -10,40 +10,36 @@
   $updatedBlogPost['id'] = $_POST["postId"];
   $updatedBlogPost['title'] = $_POST["post-title"];
   $updatedBlogPost['body'] = UTILS::formStringToParagraphHtml($_POST["post-body"]);
-  $updatedBlogPost['media_iframe'] = isset($_POST["post-media_iframe"]) ? trim($_POST["post-media_iframe"]) : "";
   $updatedBlogPost['published'] = UTILS::formCheckboxValueToBoolean($_POST["post-published"]);
   $updatedBlogPost['date_last_edit'] = date("Y-m-d H:i:s", time());
-  $iframe = $updatedBlogPost['media_iframe'];
+
   // check if user uploaded a new cover image
   if (strlen($_FILES["post-attatched_image"]["name"]) > 0) {
-
     $img_target_dir = "../../img/uploads/";
     $target_file = $img_target_dir . basename($_FILES["post-attatched_image"]["name"]);
     if (isAttatchedImageValid($target_file) === false) {
-      header("Location: ../error.php?errName=Invalid Cover Image&errMsg=Uploaded image file is invalid.");
+      header("Location: ../error.php?errName=Invalid Image&errMsg=Uploaded cover image is invalid.");
       die;
     }
-
     move_uploaded_file($_FILES["post-attatched_image"]["tmp_name"], $target_file);
     $updatedBlogPost['attatched_image'] = $_FILES["post-attatched_image"]["name"];
-
   } else {
     $updatedBlogPost['attatched_image'] = $_POST['post-current_image'];
   }
 
-  if(isset($iframe)){
-    if(isIframeValid($iframe) === false){
-      header("Location: ../error.php?errName=Wrong iframe-link&errMsg=Please Check Your iframe-link again.");
-      die;
-    }
+  // validate attatched iframe
+  $iframe = isset($_POST["post-media_iframe"]) ? trim($_POST["post-media_iframe"]) : null;
+  if ($iframe && UTILS::isIframeValid($iframe) === false) {
+    header("Location: ../error.php?errName=Incorrect Iframe format&errMsg=Please check Your iframe-link and try again.");
+    die;
   }
+  $updatedBlogPost['media_iframe'] = $iframe;
 
   CMS::updateBlogPost($updatedBlogPost);
   header("Location: ../index.php");
   die;
 
-  function isAttatchedImageValid($target_file)
-  {
+  function isAttatchedImageValid($target_file) {
     // check if format is allowed
     $allowedExtentions = ["gif", "jpeg", "jpg", "png"];
     $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
@@ -53,23 +49,6 @@
     // check file size
     if ($_FILES["post-attatched_image"]["size"] > 9500000) { echo "filesize too big"; return false; }
     return true;
-  }
-
-  function isIframeValid($iframe)
-  {
-    if($iframe){
-          
-      // make sure entered link is an iframe embed and not just a link
-      // links only come from G-Map and YouTube
-      $regGoogleMap = '/<iframe\s*src="https:\/\/www\.google\.com\/maps\/embed\?[^"]+"*\s*[^>]+>*<\/iframe>/';
-      $regYouTube = '/<iframe[^>]*src\s*=\s*"?https?:\/\/[^\s"\/]*\.youtube.com\/embed\/(?:\/[^\s"]*)?"?[^>]*>.*?<\/iframe>/';
-    
-      if(preg_match($regGoogleMap, $iframe) || preg_match($regYouTube, $iframe)) {
-        echo 'Congrats.'; return true;
-      } else {
-        echo "Wrong form, check again."; return false;
-      }
-    }
   }
 
 ?>

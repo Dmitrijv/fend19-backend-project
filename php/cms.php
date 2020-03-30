@@ -77,7 +77,6 @@ class CMS {
             <form style='display: inline-block;' action='edit.php' method='POST' >
               <input class='btn btn-default' type='submit' name='edit' value='Edit'>
               <input type='hidden' name='postId' value='{$post['id']}'>
-
             </form>
             <form style='display: inline-block;' onsubmit='cmsLib.deleteBlogPost(event);'>
               <input class='btn btn-danger' data-post-id='{$post['id']}' type='submit' name='delete' value='Delete'>

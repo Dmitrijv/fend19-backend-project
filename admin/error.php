@@ -46,7 +46,10 @@
             <h3 class="panel-title"><?php echo $errorName ?></h3>
           </div>
           <div class="panel-body">
-            <?php echo $errorMessage ?>
+            <p><?php echo $errorMessage ?></p>
+            <form style='display: inline-block;' onsubmit='window.history.back();'>
+              <input class='btn btn-default' type='submit' name='back' value='Back'>
+            </form>
           </div>
         </div>
       </div>

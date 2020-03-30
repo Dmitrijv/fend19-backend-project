@@ -56,7 +56,7 @@
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video iframe</label>
-                <input name="post-media-iframe" type="text" class="form-control" pattern="(\s)*<iframe.*<\/iframe>(\s)*">
+                <input name="post-media_iframe" type="text" class="form-control" pattern="(\s)*<iframe.*><\/iframe>(\s)*" >
               </div>
               <div class="checkbox">
                 <label>
