@@ -106,7 +106,7 @@ class CMS {
       $iframe = strlen($post['media_iframe']) > 0 ? $post['media_iframe'] : "";
       $html .= "
         <div class='blogpost'>
-          <div class='blogpost-cover-container'></dib><img class='img-fluid' src='img/uploads/{$post["attatched_image"]}'></div>
+          <div class='blogpost-cover-container'><img class='img-fluid' src='img/uploads/{$post["attatched_image"]}'></div>
           <h2 class='blogpost-title'>{$post["title"]}</h2>
           <div class='date-posted-container'>posted on {$post["date_created"]}</div>
           <div class='panel-body'>{$post['body']}</div>
