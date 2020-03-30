@@ -1,5 +1,5 @@
 <?php
-  
+
 include_once("../php/cms.php");
 include_once("../php/utils.php");
 
