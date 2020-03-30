@@ -57,15 +57,18 @@
 
   function isIframeValid($iframe)
   {
-    // make sure entered link is an iframe embed and not just a link
-    // links only come from G-Map and YouTube
-    $regGoogleMap = '/<iframe\s*src="https:\/\/www\.google\.com\/maps\/embed\?[^"]+"*\s*[^>]+>*<\/iframe>/';
-    $regYouTube = '/<iframe[^>]*src\s*=\s*"?https?:\/\/[^\s"\/]*\.youtube.com\/embed\/(?:\/[^\s"]*)?"?[^>]*>.*?<\/iframe>/';
-  
-    if(preg_match($regGoogleMap, $iframe) || preg_match($regYouTube, $iframe)) {
-      echo 'Congrats.'; return true;
-    } else {
-      echo "Wrong form, check again."; return false;
+    if($iframe){
+          
+      // make sure entered link is an iframe embed and not just a link
+      // links only come from G-Map and YouTube
+      $regGoogleMap = '/<iframe\s*src="https:\/\/www\.google\.com\/maps\/embed\?[^"]+"*\s*[^>]+>*<\/iframe>/';
+      $regYouTube = '/<iframe[^>]*src\s*=\s*"?https?:\/\/[^\s"\/]*\.youtube.com\/embed\/(?:\/[^\s"]*)?"?[^>]*>.*?<\/iframe>/';
+    
+      if(preg_match($regGoogleMap, $iframe) || preg_match($regYouTube, $iframe)) {
+        echo 'Congrats.'; return true;
+      } else {
+        echo "Wrong form, check again."; return false;
+      }
     }
   }
 
