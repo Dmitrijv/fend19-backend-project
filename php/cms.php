@@ -23,6 +23,11 @@ class CMS {
     DB::run($sql, [$post['published'], $post['title'], $post['body'], $post['date_created'], $post['attatched_image'], $post['media_iframe']]);
   }
 
+  public function doesBlogPostExist($postId)
+  {
+    return DB::run("SELECT EXISTS(SELECT * FROM post WHERE id = ?)", [$postId])->fetchColumn();
+  }
+
   public function getBlogPost($postId)
   {
     return DB::run("SELECT * FROM post WHERE id = ?", [$postId])->fetch();

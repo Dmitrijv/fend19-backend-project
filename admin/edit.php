@@ -3,7 +3,12 @@
 include_once("../php/cms.php");
 include_once("../php/utils.php");
 
-if (!isset($_POST["postId"])) { die; }
+if (!isset($_POST["postId"]) || (CMS::doesBlogPostExist($_POST["postId"]) !== 1))
+{ 
+  header("Location: error.php?errName=Post does not exist.&errMsg=Post you are trying to edit does not exist.");
+  die;
+}
+
 $post = CMS::getBlogPost($_POST["postId"]);
 
 ?>
