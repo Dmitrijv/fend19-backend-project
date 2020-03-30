@@ -18,13 +18,17 @@
   $newBlogPost['media_iframe'] = isset($_POST["post-media_iframe"]) ? $_POST["post-media_iframe"] : "";
   $newBlogPost['published'] = UTILS::formCheckboxValueToBoolean($_POST["post-published"]);
   $newBlogPost['date_created'] = date("Y-m-d H:i:s", time());
-
+  $iframe = $newBlogPost['media_iframe'];
   $img_target_dir = "../../img/uploads/";
   $target_file = $img_target_dir . basename($_FILES["post-attatched_image"]["name"]);
  
   if (isAttatchedImageValid($target_file) === false) {
     header("Location: ../error.php?errName=Invalid Cover Image&errMsg=Uploaded image file is invalid.");
     die;
+  }
+
+  if (isIframeValid($iframe) === false) {
+    header("Location: ../error.php?errName=Wrong iframe-link&errMsg=Please Check Your iframe-link again.");
   }
 
   // save image
@@ -47,6 +51,20 @@
     // check file size
     if ($_FILES["post-attatched_image"]["size"] > 9500000) { echo "filesize too big"; return false; }
     return true;
+  }
+
+  function isIframeValid($iframe)
+  {
+    // make sure entered link is an iframe embed and not just a link
+    // links only come from G-Map and YouTube
+    $regGoogleMap = '/<iframe\s*src="https:\/\/www\.google\.com\/maps\/embed\?[^"]+"*\s*[^>]+>*<\/iframe>/';
+    $regYouTube = '/<iframe[^>]*src\s*=\s*"?https?:\/\/[^\s"\/]*\.youtube.com\/embed\/(?:\/[^\s"]*)?"?[^>]*>.*?<\/iframe>/';
+  
+    if(preg_match($regGoogleMap, $iframe) || preg_match($regYouTube, $iframe)) {
+      echo 'Congrats.'; return true;
+    } else {
+      echo "Wrong form, check again."; return false;
+    }
   }
 
 ?>
