@@ -68,7 +68,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video iframe</label>
-                <input name="post-media_iframe" type="text" class="form-control" pattern="\s<iframe.*<\/iframe>"  value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
+                <input name="post-media_iframe" type="text" class="form-control" pattern="(\s)*<iframe.*<\/iframe>(\s)*" value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
               </div>
               <div class="checkbox">
                 <label>
