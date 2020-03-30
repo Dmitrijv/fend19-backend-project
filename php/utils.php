@@ -12,7 +12,7 @@ class UTILS {
     return self::$instance;
   }
 
-  public static function formCheckboxValueToBoolean($string) { return $string == "on"; }
+  public static function formCheckboxValueToBoolean($string) { return ($string == "on") ? 1 : 0; }
 
   public static function formStringToParagraphHtml($string)
   {
