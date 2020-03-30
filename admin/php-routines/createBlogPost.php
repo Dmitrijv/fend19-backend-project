@@ -15,7 +15,7 @@
   $newBlogPost = [];
   $newBlogPost['title'] = $_POST["post-title"];
   $newBlogPost['body'] = UTILS::formStringToParagraphHtml($_POST['post-body']);
-  $newBlogPost['media_iframe'] = isset($_POST["post-media_iframe"]) ? $_POST["post-media_iframe"] : "";
+  $newBlogPost['media_iframe'] = isset($_POST["post-media_iframe"]) ? trim($_POST["post-media_iframe"]) : "";
   $newBlogPost['published'] = UTILS::formCheckboxValueToBoolean($_POST["post-published"]);
   $newBlogPost['date_created'] = date("Y-m-d H:i:s", time());
   $iframe = $newBlogPost['media_iframe'];
