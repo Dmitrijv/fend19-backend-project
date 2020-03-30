@@ -12,9 +12,9 @@ class UTILS {
     return self::$instance;
   }
 
-  public function formCheckboxValueToBoolean($string) { return $string == "on"; }
+  public static function formCheckboxValueToBoolean($string) { return $string == "on"; }
 
-  public function formStringToParagraphHtml($string)
+  public static function formStringToParagraphHtml($string)
   {
     function wrapLineInParagraph($html, $line)
     {
@@ -25,7 +25,7 @@ class UTILS {
     return array_reduce($lines, "wrapLineInParagraph", "");
   }
 
-  public function fromParagraphHtmlToString($html)
+  public static function fromParagraphHtmlToString($html)
   {
     $dom = str_get_html($html);
     $str = "";
@@ -33,11 +33,11 @@ class UTILS {
     return $str;
   }
 
-  public function deleteFile($fileName) {
+  public static function deleteFile($fileName) {
     unlink(__DIR__ ."/../img/uploads/".$fileName);
   }
 
-  public function isIframeValid($iframe) {
+  public static function isIframeValid($iframe) {
     $regGoogleMap = '/<iframe\s*src="https:\/\/www\.google\.com\/maps\/embed\?[^"]+"*\s*[^>]+>*<\/iframe>/';
     $regYouTube = '/<iframe[^>]*src\s*=\s*"?https?:\/\/[^\s"\/]*\.youtube.com\/embed\/(?:\/[^\s"]*)?"?[^>]*>.*?<\/iframe>/';
     return preg_match($regGoogleMap, $iframe) || preg_match($regYouTube, $iframe);

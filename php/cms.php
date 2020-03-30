@@ -16,24 +16,24 @@ class CMS {
     return self::$instance;
   }
 
-  public function createBlogPost($post)
+  public static function createBlogPost($post)
   {
     $sql = "INSERT INTO post (id, published, title, body, date_created, date_last_edit, attatched_image, media_iframe)
             VALUES (NULL, ?, ?, ?, ?, NULL, ?, ?)";
     DB::run($sql, [$post['published'], $post['title'], $post['body'], $post['date_created'], $post['attatched_image'], $post['media_iframe']]);
   }
 
-  public function doesBlogPostExist($postId)
+  public static function doesBlogPostExist($postId)
   {
     return DB::run("SELECT EXISTS(SELECT * FROM post WHERE id = ?)", [$postId])->fetchColumn();
   }
 
-  public function getBlogPost($postId)
+  public static function getBlogPost($postId)
   {
     return DB::run("SELECT * FROM post WHERE id = ?", [$postId])->fetch();
   }
 
-  public function updateBlogPost($newPost)
+  public static function updateBlogPost($newPost)
   {
     // delete old cover image before updating fields
     $coverImage = DB::run("SELECT attatched_image FROM post WHERE id = ?", [$newPost["id"]])->fetchColumn();
@@ -42,7 +42,7 @@ class CMS {
      [$newPost["published"], $newPost["title"], $newPost["body"], $newPost["date_last_edit"], $newPost["attatched_image"], $newPost["media_iframe"], $newPost["id"]]);
   }
 
-  public function deleteBlogPost($postId)
+  public static function deleteBlogPost($postId)
   {
     // delete cover image
     $coverImage = DB::run("SELECT attatched_image FROM post WHERE id = ?", [$postId])->fetchColumn();
@@ -51,12 +51,12 @@ class CMS {
     DB::run("DELETE FROM post WHERE id = ?", [$postId]);
   }  
 
-  public function getNumberOfBlogPosts()
+  public static function getNumberOfBlogPosts()
   {
     return DB::run("SELECT count(*) FROM post")->fetchColumn();
   }
 
-  public function getAdminBlogPostsTable()
+  public static function getAdminBlogPostsTable()
   {
     $stmt = DB::run("SELECT * FROM post ORDER BY date_created DESC");
     //create table head
@@ -97,7 +97,7 @@ class CMS {
     echo $html;
   }
 
-  public function getPublishedBlogPosts()
+  public static function getPublishedBlogPosts()
   {
     $stmt = DB::run("SELECT * FROM post WHERE published = TRUE ORDER BY date_created DESC");
     $html = "";
