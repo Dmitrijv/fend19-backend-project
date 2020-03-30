@@ -1,6 +1,6 @@
 # FEND19 - Backend – Project: Content Management System
 
-![preview](readme/cms-preview.png)
+![preview](readme/cms-preview.jpg)
 
 ## Description
 
