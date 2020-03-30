@@ -8,8 +8,6 @@ $post = CMS::getBlogPost($_POST["postId"]);
 
 ?>
 
-<!-- TODO -->
-<!-- 3. Add images/maps -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
