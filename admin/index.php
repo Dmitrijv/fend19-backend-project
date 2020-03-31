@@ -49,7 +49,7 @@
             <div class="add-new-post-box">
               <a href="create.php"><i class="fas fa-plus"></i> add a new post</a>
             </div>
-            <?php CMS::getAdminBlogPostsTable(); ?>
+            <?php CMS::getAdminBlogPostsTableHtml(); ?>
           </div>
         </div>
         <!-- end of Post History Overview -->

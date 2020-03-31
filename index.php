@@ -26,7 +26,7 @@
     <section id="main">
       <div class="container">
         <section class="post-list">
-          <?php CMS::getPublishedBlogPosts(); ?>
+          <?php CMS::getPublishedBlogPostsHtml(); ?>
         </section>
       </div>
     </section>

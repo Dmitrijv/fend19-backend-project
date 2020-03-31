@@ -56,7 +56,7 @@ class CMS {
     return DB::run("SELECT count(*) FROM post")->fetchColumn();
   }
 
-  public static function getAdminBlogPostsTable()
+  public static function getAdminBlogPostsTableHtml()
   {
     $stmt = DB::run("SELECT * FROM post ORDER BY date_created DESC");
     //create table head
@@ -97,7 +97,7 @@ class CMS {
     echo $html;
   }
 
-  public static function getPublishedBlogPosts()
+  public static function getPublishedBlogPostsHtml()
   {
     $stmt = DB::run("SELECT * FROM post WHERE published = TRUE ORDER BY date_created DESC");
     $html = "";
