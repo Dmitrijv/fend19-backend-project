@@ -50,7 +50,7 @@ Blog management is done with Administrator tool which is located in the "admin" 
 
 ![preview](readme/cms-login.png)
 
-Once correct credetials are entered user gets access to the Administrator panel from which you can see a list of all blog posts stored in the database.
+Once correct credentials are entered, the user gets access to the Administrator panel from which you can see a list of all blog posts stored in the database.
 
 ![preview](readme/cms-admin.png)
 
