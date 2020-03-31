@@ -32,7 +32,7 @@
   // validate attatched iframe
   $iframe = isset($_POST["post-media_iframe"]) ? trim($_POST["post-media_iframe"]) : null;
   if ($iframe && UTILS::isIframeValid($iframe) === false) {
-    header("Location: ../error.php?errName=Incorrect Iframe format&errMsg=Please check Your iframe-link and try again.");
+    header("Location: ../error.php?errName=Incorrect Iframe format&errMsg=Please check your iframe-link and try again.");
     die;
   }
   $newBlogPost['media_iframe'] = $iframe;
