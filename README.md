@@ -25,10 +25,10 @@ Running SQL queries on the database is done with the help of DB class that follo
 For example, to get the number of blog posts in the database you can simply run:
 
 ```php
-  return DB::run("SELECT count(*) FROM post")->fetchColumn();
+  $n = DB::run("SELECT count(*) FROM post")->fetchColumn();
 ```
 
-User input is collected using HTML forms POST request to php routines that trigger appropriate calls in the CMS class. Input data is validated on both Frontend and Backend layers.
+User input is collected using HTML forms and is then passon on to php routines via POST requests. Input data is validated on both Frontend and Backend layers.
 
 ```html
 <input type="file" name="attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" required />
@@ -42,7 +42,7 @@ function isAttatchedImageValid($target_file) {
   if(!in_array($imageFileType, $allowedExtentions)) {
 ```
 
-If input validation fails on the Frontend layer then data can not be submitted at all. If user somehow manages to avoid performing Frontend validation input data will fail on the Backend and user will be redirected to an error page.
+If input validation fails on the Frontend layer then data can not be submitted at all. If user manages to avoid performing Frontend validation and the backend validation fails user is redirected to an error page.
 
 ### Administrator Area
 
@@ -59,15 +59,13 @@ Once correct credetial are entered user gets access to the Administrator panel f
 ```php
   $newBlogPost = [];
   $newBlogPost['date_created'] = date("Y-m-d H:i:s", time());
-  // ...
   // build the rest of the blog post
-  // ...
   CMS::createBlogPost($newBlogPost);
   header("Location: ../index.php");
   die;
 ```
 
-Post body text is converted from plain text to simple HTML by
+In order to convert post body text from plain text in to simple HTML the input string is segmenting in to lines by using "new line" symbols as separators. Each line is then wrapped with a <p> tag before being saved in the database.
 
 ```php
 public static function formStringToParagraphHtml($string) {
@@ -80,6 +78,8 @@ public static function formStringToParagraphHtml($string) {
 }
 ```
 
+If a post is later edited the process of wrapping new liens in to <p> tags has to be reversed before body text can be filled in the input form. This is done by using simple_html_dom library.
+
 ```php
 public static function fromParagraphHtmlToString($html) {
   $dom = str_get_html($html);
@@ -91,11 +91,11 @@ public static function fromParagraphHtmlToString($html) {
 
 ### Updating posts
 
-Once a post has been created it's possible to edit every part of it from the administrator panel.
+The process of updating an existing blog post is essentially the same as creating a new post, an existing db entry is updated rather than creating a new one.
 
 ### Deleting posts
 
-Each Delete button triggers a JavaScript function that sends an asynchronous request to a php routine. By this way blog posts can be deleted from the admin page without having to reload it.
+Each Delete button triggers a JavaScript function that sends an asynchronous request to a php routine. In this way blog posts can be deleted from the admin page without having to reload the page.
 
 ```js
 deleteBlogPost: function(event) {
