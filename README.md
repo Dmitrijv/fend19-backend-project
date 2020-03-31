@@ -6,6 +6,27 @@
 
 The purpose of this project is to develop a simple CMS application that lets you create, read, update and delete blog posts. The system is written in PHP, JavaScript and uses a MySQL database to persist data. The work was performed in a group of two students.
 
+## Implementation
+
+Running SQL queueres on the database is done with the help of DB class that follows the Singleton pattern. A single PDO connection is created and used through the system to avoid opening and closing new connections unnecessarily. For example, to get the number of blog posts in the database you can simply run:
+
+```php
+  return DB::run("SELECT count(*) FROM post")->fetchColumn();
+```
+
+A CMS class was created to collect all logical operations on the database such as creating a new blog post, getting the number of blog posts currently in the database and so on.
+
+```php
+  $newBlogPost = [];
+  $newBlogPost['date_created'] = date("Y-m-d H:i:s", time());
+  // ...
+  // build the rest of the blog post
+  // ...
+  CMS::createBlogPost($newBlogPost);
+  header("Location: ../index.php");
+  die;
+```
+
 ## Public Area
 
 Blog posts are appended to a section.
