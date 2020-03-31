@@ -95,7 +95,7 @@ Once a post has been created it's possible to edit every part of it from the adm
 
 ### Deleting posts
 
-Each Delete button triggers a javascript functio that sends a asynchronous request to a php routine. This way blog posts can be deleted from the admin page without having to reload it.
+Each Delete button triggers a javascript function that sends an asynchronous request to a php routine. By this way blog posts can be deleted from the admin page without having to reload it.
 
 ```js
 deleteBlogPost: function(event) {
