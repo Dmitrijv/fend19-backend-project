@@ -42,7 +42,7 @@ function isAttatchedImageValid($target_file) {
   if(!in_array($imageFileType, $allowedExtentions)) {
 ```
 
-If input validations fails on the Frontend layer then data can not be submitted at all. If user somehow manages to avoid performing Frontend validation input data will fail on the Backend and user will be redirected to an error page.
+If input validation fails on the Frontend layer then data can not be submitted at all. If user somehow manages to avoid performing Frontend validation input data will fail on the Backend and user will be redirected to an error page.
 
 ### Administrator Area
 
