@@ -48,7 +48,8 @@
           </div>
           <div class="panel-body">
             <p><?php echo $errorMessage ?></p>
-            <form style='display: inline-block;' onsubmit='window.history.back();'>
+            <form style='display: inline-block;' onsubmit='history.go(-1);return false;'>
+            <!-- <form style='display: inline-block;' onsubmit='window.history.back();'> -->
               <input class='btn btn-default' type='submit' name='back' value='Back'>
             </form>
           </div>
