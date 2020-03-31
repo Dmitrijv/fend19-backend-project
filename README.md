@@ -93,11 +93,11 @@ public static function fromParagraphHtmlToString($html) {
 
 ### Updating posts
 
-The process of updating an existing blog post is essentially the same as creating a new post. A existing db entry is updated rather than creating a new table row.
+The process of updating an existing blog post is essentially the same as creating a new post. An existing db entry is updated rather than creating a new table row.
 
 ### Deleting posts
 
-Blog posts can be deleted from the admin page by pressing the corresponding Delete button. This will trigge a JavaScript function that sends an asynchronous POST request to a php script. If HTTP request returns status is OK the deleted blog post row is removed from the admin panel and the total number of posts in the database is decremented.
+Blog posts can be deleted from the admin page by pressing the corresponding Delete button. This will trigger a JavaScript function that sends an asynchronous POST request to a php script. If HTTP request returns status is OK the deleted blog post row is removed from the admin panel and the total number of posts in the database is decremented.
 
 ```js
 deleteBlogPost: function(event) {
