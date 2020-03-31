@@ -46,7 +46,7 @@ If input validation fails on the Frontend layer then data can not be submitted a
 
 ### Administrator Area
 
-Blog managment is done with Administrator tool which is located in the "admin" subfolder which is protected by a Directory Access lock (grade requirement).
+Blog management is done with Administrator tool which is located in the "admin" subfolder which is protected by a Directory Access lock (grade requirement).
 
 ![preview](readme/cms-login.png)
 
