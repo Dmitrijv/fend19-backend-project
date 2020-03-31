@@ -163,6 +163,37 @@ body {
   vertical-align: unset;
 }
 
+/* 992px bp: first column width: 30% */
+@media (max-width: 992px) {
+  .table>tbody>tr>td:first-child,
+  .table>tbody>tr>th:first-child,
+  .table>tfoot>tr>td:first-child,
+  .table>tfoot>tr>th:first-child,
+  .table>thead>tr>td:first-child,
+  .table>thead>tr>th:first-child {
+    width: 30%;
+  }
+}
+
+/* 584px bp: third column width: 20% */
+@media (max-width: 584px) {
+  .table>tbody>tr>td:nth-child(3),
+  .table>tbody>tr>th:nth-child(3),
+  .table>tfoot>tr>td:nth-child(3),
+  .table>tfoot>tr>th:nth-child(3),
+  .table>thead>tr>td:nth-child(3),
+  .table>thead>tr>th:nth-child(3) {
+    width: 20%;
+  }
+}
+
+/* 498px bp: increase the width of edit*/
+@media (max-width: 498px) {
+  .btn.btn-default {
+    width: 66px;
+  }
+}
+
 .add-new-post-box {
   margin-bottom: 15px;
 }
