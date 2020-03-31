@@ -56,7 +56,7 @@ Once correct credentials are entered, the user gets access to the Administrator 
 
 ### Creating a new post
 
-If user's input passes validation a new database entry is then created and user is redirected back to admin page where he/she can see the updated list of posts.
+If a user's input passes validation a new database entry is then created and the user is redirected back to the admin page where he/she can see the updated list of posts.
 
 ```php
   $newBlogPost = [];
