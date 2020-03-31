@@ -20,7 +20,7 @@ Functions that create, manipulate and help display blog data are collected in CM
 </section>
 ```
 
-Running SQL queueres on the database is done with the help of DB class that follows the Singleton pattern. A single PDO connection is created and used through the system to avoid opening and closing new connections unnecessarily.
+Running SQL queries on the database is done with the help of DB class that follows the Singleton pattern. A single PDO connection is created and used through the system to avoid opening and closing new connections unnecessarily.
 
 For example, to get the number of blog posts in the database you can simply run:
 
@@ -95,7 +95,7 @@ Once a post has been created it's possible to edit every part of it from the adm
 
 ### Deleting posts
 
-Each Delete button triggers a javascript function that sends an asynchronous request to a php routine. By this way blog posts can be deleted from the admin page without having to reload it.
+Each Delete button triggers a JavaScript function that sends an asynchronous request to a php routine. By this way blog posts can be deleted from the admin page without having to reload it.
 
 ```js
 deleteBlogPost: function(event) {
