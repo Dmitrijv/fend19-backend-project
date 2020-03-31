@@ -67,7 +67,7 @@ If user input passes validation a new database entry is created and user is redi
   die;
 ```
 
-In order to convert body text in to simple HTML the input string is segmented in to lines by using "new line" symbols as separators. Each line is then wrapped with a <p> tag before being saved in the database.
+In order to convert body text in to simple HTML the input string is segmented in to lines by using "new line" symbols as separators. Each line is then wrapped with a < p > tag before being saved in the database.
 
 ```php
 public static function formStringToParagraphHtml($string) {
@@ -80,7 +80,7 @@ public static function formStringToParagraphHtml($string) {
 }
 ```
 
-If a post is later edited the process of wrapping new liens in to <p> tags has to be reversed before body text can be filled in the input form. This is done by using simple_html_dom library.
+If a post is later edited the process of wrapping new liens in to < p > tags has to be reversed before body text can be filled in the input form. This is done by using simple_html_dom library.
 
 ```php
 public static function fromParagraphHtmlToString($html) {
