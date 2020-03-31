@@ -28,7 +28,7 @@ For example, to get the number of blog posts in the database you can simply run:
   $n = DB::run("SELECT count(*) FROM post")->fetchColumn();
 ```
 
-User input is collected using HTML forms and is then passon on to php routines via POST requests. Input data is validated on both Frontend and Backend layers.
+User input is collected using HTML forms and is then passed on to php scripts via POST requests. Input data is validated on both Frontend and Backend layers.
 
 ```html
 <input type="file" name="attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" required />
@@ -42,7 +42,7 @@ function isAttatchedImageValid($target_file) {
   if(!in_array($imageFileType, $allowedExtentions)) {
 ```
 
-If input validation fails on the Frontend layer then data can not be submitted at all. If user manages to avoid performing Frontend validation and the backend validation fails user is redirected to an error page.
+If input validation fails on the Frontend layer then data can not be submitted at all. If user manages to avoid performing Frontend validation and the Backend validation fails user is redirected to a error page.
 
 ### Administrator Area
 
@@ -50,11 +50,13 @@ Blog managment is done with Administrator tool which is located in the "admin" s
 
 ![preview](readme/cms-login.png)
 
-Once correct credetial are entered user gets access to the Administrator panel from which you can see a list of all blog posts stored in the database.
+Once correct credetials are entered user gets access to the Administrator panel from which you can see a list of all blog posts stored in the database.
 
 ![preview](readme/cms-admin.png)
 
 ### Creating new posts
+
+If user input passes validation a new database entry is created and user is redirected back to admin page where he can see the updated list of posts.
 
 ```php
   $newBlogPost = [];
@@ -65,7 +67,7 @@ Once correct credetial are entered user gets access to the Administrator panel f
   die;
 ```
 
-In order to convert post body text from plain text in to simple HTML the input string is segmenting in to lines by using "new line" symbols as separators. Each line is then wrapped with a <p> tag before being saved in the database.
+In order to convert body text in to simple HTML the input string is segmented in to lines by using "new line" symbols as separators. Each line is then wrapped with a <p> tag before being saved in the database.
 
 ```php
 public static function formStringToParagraphHtml($string) {
@@ -91,11 +93,11 @@ public static function fromParagraphHtmlToString($html) {
 
 ### Updating posts
 
-The process of updating an existing blog post is essentially the same as creating a new post, an existing db entry is updated rather than creating a new one.
+The process of updating an existing blog post is essentially the same as creating a new post. A existing db entry is updated rather than creating a new table row.
 
 ### Deleting posts
 
-Each Delete button triggers a JavaScript function that sends an asynchronous request to a php routine. In this way blog posts can be deleted from the admin page without having to reload the page.
+Blog posts can be deleted from the admin page by pressing the corresponding Delete button. This will trigge a JavaScript function that sends an asynchronous POST request to a php script. If HTTP request returns status is OK the deleted blog post row is removed from the admin panel and the total number of posts in the database is decremented.
 
 ```js
 deleteBlogPost: function(event) {
