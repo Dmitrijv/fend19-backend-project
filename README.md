@@ -54,7 +54,7 @@ Once correct credetials are entered user gets access to the Administrator panel 
 
 ![preview](readme/cms-admin.png)
 
-### Creating new posts
+### Creating a new post
 
 If user input passes validation a new database entry is created and user is redirected back to admin page where he can see the updated list of posts.
 
@@ -91,11 +91,11 @@ public static function fromParagraphHtmlToString($html) {
 }
 ```
 
-### Updating posts
+### Updating a post
 
 The process of updating an existing blog post is essentially the same as creating a new post. An existing db entry is updated rather than creating a new table row.
 
-### Deleting posts
+### Deleting a post
 
 Blog posts can be deleted from the admin page by pressing the corresponding Delete button. This will trigger a JavaScript function that sends an asynchronous POST request to a php script. If HTTP request returns status is OK the deleted blog post row is removed from the admin panel and the total number of posts in the database is decremented.
 
