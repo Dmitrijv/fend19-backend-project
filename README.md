@@ -31,7 +31,7 @@ For example, to get the number of blog posts in the database you can simply run:
 User input is collected using HTML forms POST request to php routines that trigger appropriate calls in the CMS class. Input data is validated on both Frontend and Backend layers.
 
 ```html
-<input type="file" name="post-attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" required />
+<input type="file" name="attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" required />
 ```
 
 ```php
@@ -39,7 +39,7 @@ function isAttatchedImageValid($target_file) {
   // check if format is allowed
   $allowedExtentions = ["gif", "jpeg", "jpg", "png"];
   $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-  if(!in_array($imageFileType, $allowedExtentions)) { return false; }
+  if(!in_array($imageFileType, $allowedExtentions)) {
 ```
 
 If input validations fails on the Frontend layer then data can not be submitted at all. If user somehow manages to avoid performing Frontend validation input data will fail on the Backend and user will be redirected to an error page.
