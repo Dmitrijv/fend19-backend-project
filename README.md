@@ -28,7 +28,7 @@ For example, to get the number of blog posts in the database you can simply run:
   $n = DB::run("SELECT count(*) FROM post")->fetchColumn();
 ```
 
-User input is collected using HTML forms and is then passed on to php scripts via POST requests. Input data is validated on both Frontend and Backend layers.
+User's input is first collected by using HTML forms and then passed on to php scripts via POST requests. Input data is validated on both Frontend and Backend layers.
 
 ```html
 <input type="file" name="attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" required />
@@ -42,7 +42,7 @@ function isAttatchedImageValid($target_file) {
   if(!in_array($imageFileType, $allowedExtentions)) {
 ```
 
-If input validation fails on the Frontend layer then data can not be submitted at all. If user manages to avoid performing Frontend validation and the Backend validation fails user is redirected to a error page.
+If input validation fails on the Frontend layer then data can not be submitted at all. If user manages to avoid performing Frontend validation and on the next stage the Backend validation will fail, and user will be redirected to a error page.
 
 ### Administrator Area
 
@@ -56,7 +56,7 @@ Once correct credentials are entered, the user gets access to the Administrator 
 
 ### Creating a new post
 
-If a user's input passes validation a new database entry is then created and the user is redirected back to the admin page where he/she can see the updated list of posts.
+If a user's input passes validation, a new database entry is then created and the user is redirected back to the admin page where he/she can see the updated list of posts.
 
 ```php
   $newBlogPost = [];
@@ -97,7 +97,7 @@ The process of updating an existing blog post is essentially the same as creatin
 
 ### Deleting a post
 
-Blog posts can be deleted from the admin page by pressing the corresponding Delete button. This will trigger a JavaScript function that sends an asynchronous POST request to a php script. If HTTP request returns status is OK the deleted blog post row is removed from the admin panel and the total number of posts in the database is decremented.
+Blog posts can be deleted from the admin page by pressing the corresponding Delete button. This will trigger a JavaScript function that sends an asynchronous POST request to a PHP script. If HTTP request returns a successful status code **200**, the deleted blog post row is removed from the admin panel and the total number of posts in the database is decremented.
 
 ```js
 deleteBlogPost: function(event) {
