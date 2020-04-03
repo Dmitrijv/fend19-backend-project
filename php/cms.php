@@ -72,7 +72,10 @@ class CMS {
     // append table rows
     while ($post = $stmt->fetch(PDO::FETCH_LAZY))
     {
-      $published = ( $post['published'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' );
+      //Get publish status from db
+      $published = $post['published'] ? "<input name='post-published' type='checkbox' data-toggle='toggle' data-style='ios' checked>" : "<input name='post-published' type='checkbox' data-toggle='toggle' data-style='ios' ''>";
+      // $published = ( $post['published'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' );
+
       $html .= "
         <tr data-post-id='{$post['id']}' >
           <td class='post-title' >{$post['title']}</td>

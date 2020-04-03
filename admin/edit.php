@@ -27,6 +27,10 @@ $post = CMS::getBlogPost($_POST["postId"]);
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
     <!-- Custom CSS -->
     <link href="../css/adminPanelStyle.css" rel="stylesheet">
+    <!-- Bootstrap toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <style>
+    .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }</style>
   </head>
 
   <body>
@@ -70,15 +74,23 @@ $post = CMS::getBlogPost($_POST["postId"]);
                 <p><?php echo $post["attatched_image"] ?></p>
                 <img class="small-img-on-edit" src="../img/uploads/<?php echo $post["attatched_image"] ?>" alt="post-img">
                 <input type="file" name="post-attatched_image" id="post-attatched_image" accept=".jpg,.jpeg,.png,.gif" >
+                <span class="imgErrInfo"></span>
                 <input type="hidden" name="post-current_image" value="<?php echo $post['attatched_image']; ?>">
               </div>
               <div class="form-group">
                 <label>Embedd a Google Map or a Youtube video iframe</label>
+                <span class="iframeErrInfo">
+                  <?php
+                    // if(){
+
+                    // }
+                  ?>
+                </span>
                 <input name="post-media_iframe" type="text" class="form-control" pattern="\s*<iframe.*><\/iframe>\s*" value="<?php echo htmlspecialchars($post['media_iframe']) ?>" >
               </div>
               <div class="checkbox">
                 <label>
-                  <input name="post-published" type="checkbox" <?php echo $post['published'] ? 'checked' : '' ?> > Published
+                  <input name="post-published" type="checkbox" data-toggle="toggle" data-style="ios" <?php echo $post['published'] ? 'checked' : '' ?> > Published
                 </label>
               </div>
               <input type="submit" class="btn btn-default" value="Submit">
@@ -92,6 +104,7 @@ $post = CMS::getBlogPost($_POST["postId"]);
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
   </body>
 </html>

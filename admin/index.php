@@ -15,6 +15,22 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" integrity="sha384-v8BU367qNbs/aIZIxuivaU55N5GPF89WBerHoGA4QTcbUjYiLQtKdrfXnqAcXyTv" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link href="../css/adminPanelStyle.css" rel="stylesheet">
+    <!-- Bootstrap toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <style>
+    .toggle.ios, 
+    .toggle-on.ios, 
+    .toggle-off.ios {
+       border-radius: 20px;
+    }
+    /* .btn-primary{
+      background-color: #33b762;
+    }
+    .btn-primary:hover{
+      background-color: #44d08f;
+    } */
+    </style>
+    
   </head>
 
   <body>
@@ -60,6 +76,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="js/cmsLib.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
   </body>
   

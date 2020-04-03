@@ -36,7 +36,7 @@
       <p class="bold">FEND19 - Backend - CMS</p>
       <p>Dmitrij Velström, Shan Mi</p>
       <p>Nackademin</p>
-      <p>2020-03-30</p>
+      <p><?php echo date('Y-m-d'); ?></p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

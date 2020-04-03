@@ -12,6 +12,10 @@
     <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
     <!-- Custom CSS -->
     <link href="../css/adminPanelStyle.css" rel="stylesheet">
+    <!-- Bootstrap toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <style>
+    .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }</style>
   </head>
   <body>
 
@@ -61,7 +65,7 @@
               </div>
               <div class="checkbox">
                 <label>
-                  <input name="post-published" type="checkbox" checked> Published
+                  <input name="post-published" type="checkbox" data-toggle="toggle" data-style="ios" checked> Published
                 </label>
               </div>
               <input type="submit" class="btn btn-default" value="Submit">
@@ -75,5 +79,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
   </body>
 </html>
