@@ -72,14 +72,13 @@ class CMS {
     // append table rows
     while ($post = $stmt->fetch(PDO::FETCH_LAZY))
     {
-      //Get publish status from db
-      $published = $post['published'] ? "<input name='post-published' type='checkbox' data-toggle='toggle' data-style='ios' checked>" : "<input name='post-published' type='checkbox' data-toggle='toggle' data-style='ios' ''>";
-      // $published = ( $post['published'] ? '<i class="fas fa-check"></i>' : '<i class="fas fa-times"></i>' );
-
+      $published = $post['published'] ? "checked" : "''";
       $html .= "
         <tr data-post-id='{$post['id']}' >
           <td class='post-title' >{$post['title']}</td>
-          <td>{$published}</td>
+          <td>
+             <input name='post-published' onchange='cmsLib.toggleBlogPost(event)' type='checkbox' data-toggle='toggle' data-post-id='{$post['id']}' data-style='ios' {$published}>
+          </td>
           <td>{$post['date_created']}</td>
           <td>
             <form style='display: inline-block;' action='edit.php' method='POST' >
