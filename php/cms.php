@@ -119,6 +119,10 @@ class CMS {
     echo $html;
   }
 
+  public static function togglePublishStatus($status, $postId)
+  {
+    $newStatus = ($status=='true') ? 1 : 0;
+    $stmt = DB::run("UPDATE post SET published=? WHERE id = ?", [$newStatus, $postId]);
+  }
+ 
 }
-
-?>
